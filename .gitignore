@@ -342,3 +342,7 @@ healthchecksdb
 # Exclude data folder
 !data/*
 !data/debug/*
+
+# Exclude builds
+data
+Release.7z
