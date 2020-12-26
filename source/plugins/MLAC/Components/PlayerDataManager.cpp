@@ -4,6 +4,7 @@
 #include "../Constants.h"
 #include "../Input/Keyboard/Keyboard.h"
 #include "../FileSystem/ConfigFile.h"
+#include <string.h>
 
 const std::string PLAYER_DATA_FILE_NAME = "playerdata.ini";
 
@@ -91,25 +92,26 @@ namespace MLAC::Components
 				*target = value;
 		};
 
-		setIfNotEqual(&playerData->level, customPlayerData->Level, 1);
-		setIfNotEqual(&playerData->level_plate_id, customPlayerData->LevelPlateId, 0);
-		setIfNotEqual(&playerData->vocaloid_point, customPlayerData->VocaloidPoint, 99);
-		setIfNotEqual(&playerData->skin_equip, customPlayerData->SkinEquip, 0);
-		setIfNotEqual(&playerData->btn_se_equip, customPlayerData->BtnSeEquip, -1);
+		//playerData->level = customPlayerData->Level;
+		//playerData->level_plate_id = customPlayerData->LevelPlateId;
+		playerData->vocaloid_point = customPlayerData->VocaloidPoint;
+		//playerData->skin_equip = customPlayerData->SkinEquip;
+		//playerData->btn_se_equip = customPlayerData->BtnSeEquip;
 
-		for (int i = 0; i < sizeof(playerData->module_equip) / sizeof(int); i++)
-			setIfNotEqual(&playerData->module_equip[i], customPlayerData->ModuleEquip[i], 0);
+		//for (int i = 0; i < sizeof(playerData->module_equip) / sizeof(int); i++)
+		//	playerData->module_equip[i] = customPlayerData->ModuleEquip[i];
 
 		if (customPlayerData->PlayerName != nullptr)
 		{
-			playerData->field_D8 = 0x10;
-			playerData->player_name = (char*)customPlayerData->PlayerName->c_str();
+		//	playerData->field_70 = 0x10;
+		//	playerData->player_name = (char*)customPlayerData->PlayerName->c_str();
+			strcpy_s(playerData->player_name, (char*)customPlayerData->PlayerName->c_str());
 		}
 
-		if (customPlayerData->LevelName != nullptr)
-		{
-			playerData->field_F4 = 0x10;
-			playerData->level_name = (char*)customPlayerData->LevelName->c_str();
-		}
+		//if (customPlayerData->LevelName != nullptr)
+		//{
+		//	playerData->field_F4 = 0x10;
+		//	playerData->level_name = (char*)customPlayerData->LevelName->c_str();
+		//}
 	}
 }
