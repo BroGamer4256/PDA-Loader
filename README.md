@@ -17,6 +17,10 @@ Place any **.dva** plugin you want to use inside the **"plugins"** folder.
 
 Launch **"diva.exe"**.
 
+## Download
+
+[Appveyor artifacts](https://ci.appveyor.com/project/BroGamer4256/pda-loader/build/artifacts)
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
