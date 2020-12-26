@@ -36,13 +36,7 @@ struct PlayerData
 	int32_t play_data_id; // at 0x50
 	int32_t accept_index; // at 0x54
 	int32_t start_index; // at 0x58
-	char player_name[16]; // at 0x5c
-	int32_t field_6C;
-	int32_t field_70;
-	int32_t field_74;
-	uint8_t field_78;
-	uint8_t field_79;
-	uint8_t field_7A;
+	char player_name[31]; // at 0x5c
 	char* level_name; // at 0x7b
 	int32_t field_7F;
 	int32_t field_83;
