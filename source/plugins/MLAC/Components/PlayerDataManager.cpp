@@ -75,28 +75,12 @@ namespace MLAC::Components
 		config.TryGetValue("player_name", customPlayerData->PlayerName);
 		config.TryGetValue("level_name", customPlayerData->LevelName);
 
-		customPlayerData->Level = parseInt("level");
-		customPlayerData->LevelPlateId = parseInt("level_plate_id");
 		customPlayerData->VocaloidPoint = parseInt("vocaloid_point");
 		customPlayerData->ModuleEquip[0] = parseInt("module_equip[0]");
-		customPlayerData->ModuleEquip[1] = parseInt("module_equip[1]");
-		customPlayerData->SkinEquip = parseInt("skin_equip");
-		customPlayerData->BtnSeEquip = parseInt("btn_se_equip");
 		customPlayerData->UseCard = true;
 		playerData->use_card = true;
-		
-		// don't need to overwrite the default values
-		auto setIfNotEqual = [](int *target, int value, int comparison) 
-		{
-			if (value != comparison)
-				*target = value;
-		};
 
-		//playerData->level = customPlayerData->Level;
-		//playerData->level_plate_id = customPlayerData->LevelPlateId;
 		playerData->vocaloid_point = customPlayerData->VocaloidPoint;
-		//playerData->skin_equip = customPlayerData->SkinEquip;
-		//playerData->btn_se_equip = customPlayerData->BtnSeEquip;
 
 		//for (int i = 0; i < sizeof(playerData->module_equip) / sizeof(int); i++)
 		//	playerData->module_equip[i] = customPlayerData->ModuleEquip[i];
@@ -108,10 +92,11 @@ namespace MLAC::Components
 			strcpy_s(playerData->player_name, (char*)customPlayerData->PlayerName->c_str());
 		}
 
-		//if (customPlayerData->LevelName != nullptr)
-		//{
+		if (customPlayerData->LevelName != nullptr)
+		{
 		//	playerData->field_F4 = 0x10;
 		//	playerData->level_name = (char*)customPlayerData->LevelName->c_str();
-		//}
+			strcpy_s(playerData->level_name, (char*)customPlayerData->LevelName->c_str());
+		}
 	}
 }

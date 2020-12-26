@@ -37,17 +37,12 @@ struct PlayerData
 	int32_t accept_index; // at 0x54
 	int32_t start_index; // at 0x58
 	char player_name[31]; // at 0x5c
-	char* level_name; // at 0x7b
-	int32_t field_7F;
-	int32_t field_83;
-	int32_t field_87;
-	int32_t field_8B;
-	int32_t field_8F;
-	int32_t field_93;
-	int32_t field_97;
+	char level_name[31]; // at 0x7b
+	uint8_t field_9A;
 	uint8_t field_9B;
 	int32_t vocaloid_point; // at 0x9c
 	int32_t hp_vol; // at 0xa0
 	int32_t act_vol; // at 0xa4
+	int32_t password; // at 0x240
 };
 #pragma pack(pop)
