@@ -93,6 +93,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Components\FastLoader.h" />
+    <ClInclude Include="Components\FrameRateManager.h" />
     <ClInclude Include="Components\SysTimer.h" />
     <ClInclude Include="Input\Bindings\Ds4Binding.h" />
     <ClInclude Include="Input\Bindings\XinputBinding.h" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Components\Input\TouchPanelEmulator.h" />
     <ClInclude Include="Components\Input\TouchPanelState.h" />
     <ClInclude Include="FileSystem\TextFile.h" />
+    <ClCompile Include="Components\FrameRateManager.cpp" />
     <ClCompile Include="Components\PlayerDataManager.h" />
     <ClCompile Include="Components\PlayerData.h" />
   </ItemGroup>

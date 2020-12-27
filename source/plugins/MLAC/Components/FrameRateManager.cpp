@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-namespace DivaHook::Components
+namespace MLAC::Components
 {
 	FrameRateManager::FrameRateManager()
 	{
@@ -21,12 +21,13 @@ namespace DivaHook::Components
 
 	void FrameRateManager::Initialize()
 	{
+		printf("[MLAC] FrameRateManager::Initialize(): Initialized\n");
 		pvFrameRate = (float*)PV_FRAME_RATE_ADDRESS;
 		frameSpeed = (float*)FRAME_SPEED_ADDRESS;
 		aetFrameDuration = (float*)AET_FRAME_DURATION_ADDRESS;
 
 		// The default is expected to be 1.0 / 60.0
-		defaultAetFrameDuration = *aetFrameDuration;
+		defaultAetFrameDuration = /**aetFrameDuration*/1.0/60.0;
 
 		// This const variable is stored inside a data segment so we don't want to throw any access violations
 		DWORD oldProtect;

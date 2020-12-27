@@ -44,6 +44,7 @@ namespace MLAC::Components
 		}
 		*/
 
+		// Module Selection Workaround
 		for (int i = 0; i < 124; ++i)
 			*((BYTE*)0x00DEA4F0 + i) = 0xFF;
 		*((BYTE*)0x00DEA56C) = 0x7F;

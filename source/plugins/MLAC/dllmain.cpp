@@ -13,7 +13,7 @@
 #include "Components/Input/TouchPanelEmulator.h"
 #include "Components/SysTimer.h"
 #include "Components/PlayerDataManager.h"
-//#include "Components/FrameRateManager.h"
+#include "Components/FrameRateManager.h"
 #include "Components/CameraController.h"
 #include "Components/FastLoader.h"
 #include "Components/DebugComponent.h"

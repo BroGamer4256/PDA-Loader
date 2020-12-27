@@ -159,6 +159,9 @@
     <ClInclude Include="Input\Bindings\XinputBinding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Components\FrameRateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Components\EmulatorComponent.cpp">
@@ -280,6 +283,9 @@
     </ClCompile>
     <ClCompile Include="Components\PlayerData.h">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\FrameRateManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
