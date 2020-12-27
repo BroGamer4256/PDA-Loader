@@ -143,11 +143,22 @@ void ApplyPatches() {
 	if (!std::filesystem::exists(PATCHES_FILE))
 	{
 		create = true;
-		std::ofstream outfile(".\\patches.ini");
-		outfile << "[patches]" << std::endl << "# ONLY FOR ADVANCED USERS" << std::endl;
+		std::ofstream outfile(PATCHES_FILE);
+		std::ifstream in(".\\patches.dva", std::ifstream::ate | std::ifstream::binary);
+		outfile << "# ONLY FOR ADVANCED USERS" << std::endl << "# Size: " << in.tellg() << std::endl << "[patches]" << std::endl;
 		outfile.close();
 	}
+	std::ifstream in(".\\patches.dva", std::ifstream::ate | std::ifstream::binary);
+	std::ifstream infile(PATCHES_FILE);;
+	char buffer[256];
+	infile.getline(buffer, 256); // Read to line 2
+	char size[256];
+	infile.getline(size, 256);
+	if (size != "# Size: " + in.tellg()) create = true;
+	infile.close();
+
 	CSimpleIniA ini;
+	
 	ini.LoadFile(PATCHES_FILE);
 
 	switch (game_version)
