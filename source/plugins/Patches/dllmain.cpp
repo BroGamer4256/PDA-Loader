@@ -55,7 +55,7 @@ void ApplyPatches() {
 		// Skip pcpaOpenClient loop
 		{ (void*)0x008AFCE0,{ 0xC2, 0x14, 0x00 }, "pcpaOpenClient" },
 		// Disable the keychip time bomb
-		{ (void*)0x0049C8B0,{ 0xB8, 0x01, 0x00, 0x00, 0x00, 0xC3 }, "KeychipBomb" },
+		{ (void*)0x0049C8B0,{ 0xB8, 0x01, 0x00, 0x00, 0x00, 0xC3 }, "DayTimer" },
 		// *But of course we have a valid keychip*, return true
 		{ (void*)0x006FC420,{ 0xB0, 0x01, 0xC3 }, "KeychipTrue" },
 		// Just completely ignore all SYSTEM_STARTUP errors
@@ -145,21 +145,27 @@ void ApplyPatches() {
 		create = true;
 		std::ofstream outfile(PATCHES_FILE);
 		std::ifstream in(".\\patches.dva", std::ifstream::ate | std::ifstream::binary);
-		outfile << "# ONLY FOR ADVANCED USERS" << std::endl << "# Size: " << in.tellg() << std::endl << "[patches]" << std::endl;
+		outfile << "# ONLY FOR ADVANCED USERS" << std::endl << "[patches]" << std::endl;
 		outfile.close();
 	}
-	std::ifstream in(".\\patches.dva", std::ifstream::ate | std::ifstream::binary);
-	std::ifstream infile(PATCHES_FILE);;
-	char buffer[256];
-	infile.getline(buffer, 256); // Read to line 2
-	char size[256];
-	infile.getline(size, 256);
-	if (size != "# Size: " + in.tellg()) create = true;
-	infile.close();
 
 	CSimpleIniA ini;
-	
 	ini.LoadFile(PATCHES_FILE);
+
+	if (create)
+	{
+		switch (game_version)
+		{
+		case 600:
+			for (size_t i = 0; i < _countof(patches_600); i++)
+				ini.SetBoolValue("patches", patches_600[i].Name, true);
+			break;
+		case 101:
+			for (size_t i = 0; i < _countof(patches_101); i++)
+				ini.SetBoolValue("patches", patches_101[i].Name, true);
+			break;
+		}
+	}
 
 	switch (game_version)
 	{
@@ -167,7 +173,6 @@ void ApplyPatches() {
 		for (size_t i = 0; i < _countof(patches_600); i++)
 		{
 			if (!create && ini.GetValue("patches", patches_600[i].Name)[2] == "false"[2]) continue;
-			else ini.SetBoolValue("patches", patches_600[i].Name, true);
 			InjectCode(patches_600[i].Address, patches_600[i].Data);
 		}
 		break;
@@ -175,7 +180,6 @@ void ApplyPatches() {
 		for (size_t i = 0; i < _countof(patches_101); i++)
 		{
 			if (!create && ini.GetValue("patches", patches_101[i].Name)[2] == "false"[2]) continue;
-			else ini.SetBoolValue("patches", patches_101[i].Name, true);
 			InjectCode(patches_101[i].Address, patches_101[i].Data);
 		}
 		break;
