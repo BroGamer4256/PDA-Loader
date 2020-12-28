@@ -42,20 +42,22 @@ void ApplyPatches() {
 	
 	const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } patches_101[] =
 	{
-		//Debug
-		//Why the fuck did raki remove this shit
-		{ (void*)0x00535CC0,{ 0xB0, 0x01 }, "Debug" },
-		{ (void*)0x00535CD0,{ 0xB0, 0x01 }, "Debug" },
-		{ (void*)0x005A3D80,{ 0xB0, 0x01, 0xC3 }, "Debug" },
-		{ (void*)0x005DB542,{ 0x00 }, "Debug" },
-		{ (void*)0x005DB6C4,{ 0x00 }, "Debug" },
-		{ (void*)0x005DBCC8,{ 0x64, 0xA3 }, "Debug" },
+		// Enable dwgui
+		{ (void*)0x00535CC0,{ 0xB0, 0x01 }, "dwgui" },
+		{ (void*)0x00535CD0,{ 0xB0, 0x01 }, "dwgui" },
+		{ (void*)0x005A3D80,{ 0xB0, 0x01, 0xC3 }, "dwgui" },
+		// Enable Debug Cursor RightClick
+		{ (void*)0x005DB542,{ 0x00 }, "DebugCursor" },
+		// Enable Debug Cursor Moving
+		{ (void*)0x005DBCC8,{ 0x64, 0xA3 }, "DebugCursor" },
+		// Show Cursor in game window
+		{ (void*)0x005DB6C4,{ 0x00 }, "ShowCursor" },
 		// Skip amMaster checks
 		{ (void*)0x006FAA10,{ 0xB0, 0x01, 0xC3 }, "amMaster" },
 		// Skip pcpaOpenClient loop
 		{ (void*)0x008AFCE0,{ 0xC2, 0x14, 0x00 }, "pcpaOpenClient" },
 		// Disable the keychip time bomb
-		{ (void*)0x0049C8B0,{ 0xB8, 0x01, 0x00, 0x00, 0x00, 0xC3 }, "DayTimer" },
+		{ (void*)0x0049C8B0,{ 0xB8, 0x01, 0x00, 0x00, 0x00, 0xC3 }, "KeychipBomb" },
 		// *But of course we have a valid keychip*, return true
 		{ (void*)0x006FC420,{ 0xB0, 0x01, 0xC3 }, "KeychipTrue" },
 		// Just completely ignore all SYSTEM_STARTUP errors
@@ -199,6 +201,9 @@ void InjectCode(void* address, const std::vector<uint8_t> data)
 	VirtualProtect(address, byteCount, oldProtect, nullptr);
 }
 using namespace PluginConfig;
+
+// Note for developers
+// These do jack until theres an actual UI
 
 extern "C" __declspec(dllexport) LPCWSTR GetPluginName(void)
 {
