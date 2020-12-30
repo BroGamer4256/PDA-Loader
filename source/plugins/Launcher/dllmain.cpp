@@ -4,7 +4,10 @@
 #pragma comment(lib, "detours.lib")
 
 void returnExe(std::wstring argv);
-void returnExe(char* argv);
+void returnExe(int argc, const char** argv);
+
+std::string diva = "diva";
+std::string spaceS = " ";
 
 int hookedMain101(int argc, const char** argv, const char** envp)
 {
@@ -15,7 +18,7 @@ int hookedMain101(int argc, const char** argv, const char** envp)
 			return divaMain101(argc, argv, envp);
 	}
 
-	returnExe((char*)argv);
+	returnExe(argc, argv);
 }
 
 int hookedMain600(int argc, const char** argv, const char** envp)
@@ -27,16 +30,31 @@ int hookedMain600(int argc, const char** argv, const char** envp)
 			return divaMain600(argc, argv, envp);
 	}
 
-	returnExe((char*)argv);
+	returnExe(argc, argv);
 }
 
-void returnExe(char* argv)
+void returnExe(int argc, const char** argv)
 {
-	std::string str(argv);
-	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
-	std::wstring wstrTo(size_needed, 0);
-	MultiByteToWideChar(CP_UTF8, 0, &argv[0], (int)str.size(), &wstrTo[0], size_needed);
-	returnExe(wstrTo);
+	std::wstring args;
+
+	//space to wstring
+	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &spaceS[0], (int)spaceS.size(), NULL, 0);
+	std::wstring spaceW(size_needed, 0);
+	MultiByteToWideChar(CP_UTF8, 0, &spaceS[0], (int)spaceS.size(), &spaceW[0], size_needed);
+
+	for (int i = 0; i < argc; ++i)
+	{
+		//remove the exe from args
+		std::string str((char*)argv[i]);
+		if (str.compare(0, diva.length(), diva) == 0) continue;
+
+		int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
+		std::wstring wstrTo(size_needed, 0);
+		MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed);
+		args = args + spaceW + wstrTo;
+	}
+
+	returnExe(args);
 }
 
 void returnExe(std::wstring argv)
@@ -49,6 +67,7 @@ void returnExe(std::wstring argv)
 	ZeroMemory(&pi, sizeof(pi));
 
 	std::wstring DIVA_EXECUTABLE_LAUNCH_STRING_INCLUSIVE = DIVA_EXECUTABLE_LAUNCH_STRING + argv;
+	std::wcout << DIVA_EXECUTABLE_LAUNCH_STRING_INCLUSIVE << std::endl;
 	LPWSTR DIVA_EXECUTABLE_LAUNCH = const_cast<WCHAR*>(DIVA_EXECUTABLE_LAUNCH_STRING_INCLUSIVE.c_str());
 
 	CreateProcessW(DIVA_EXECUTABLE, DIVA_EXECUTABLE_LAUNCH, NULL, NULL, false, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi);
