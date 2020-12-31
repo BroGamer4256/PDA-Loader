@@ -3,6 +3,7 @@
 #include "GameState.h"
 #include <stdio.h>
 #include <windows.h>
+#include <iostream>
 
 namespace DivaHook::Components
 {

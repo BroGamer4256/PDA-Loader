@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{75c71cbe-41bd-42f1-96a6-39c32a382542}</ProjectGuid>
+    <ProjectGuid>{60D5E9F4-335F-402B-9A07-D78674DFFC9B}</ProjectGuid>
     <RootNamespace>Launcher</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -65,15 +65,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-	  <AdditionalIncludeDirectories>..\..\..\dependencies\PluginConfigApi;..\..\..\dependencies\freeglut\include;..\..\..\dependencies\detours\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\dependencies\PluginConfigApi;..\..\..\dependencies\freeglut\include;..\..\..\dependencies\detours\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-	  <EnableUAC>false</EnableUAC>
-	  <AdditionalLibraryDirectories>..\..\..\dependencies\detours\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-	  <AdditionalOptions>-d2:-FH4- %(AdditionalOptions)</AdditionalOptions>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>..\..\..\dependencies\detours\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>-d2:-FH4- %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -84,7 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-	  <AdditionalIncludeDirectories>..\..\..\dependencies\PluginConfigApi;..\..\..\dependencies\simpleini\include;..\..\..\dependencies\freeglut\include;..\..\..\dependencies\detours\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\dependencies\PluginConfigApi;..\..\..\dependencies\simpleini\include;..\..\..\dependencies\freeglut\include;..\..\..\dependencies\detours\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -92,9 +92,9 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-	  <EnableUAC>false</EnableUAC>
-	  <AdditionalLibraryDirectories>..\..\..\dependencies\detours\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-	  <AdditionalOptions>-d2:-FH4- %(AdditionalOptions)</AdditionalOptions>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>..\..\..\dependencies\detours\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>-d2:-FH4- %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
 #include "GameState.h"
 #include <stdio.h>
 #include <windows.h>
+#include <iostream>
 
 namespace MLAC::Components
 {
@@ -27,7 +28,7 @@ namespace MLAC::Components
 		aetFrameDuration = (float*)AET_FRAME_DURATION_ADDRESS;
 
 		// The default is expected to be 1.0 / 60.0
-		defaultAetFrameDuration = /**aetFrameDuration*/1.0/60.0;
+		defaultAetFrameDuration = 1.0f / 60.0f;
 
 		// This const variable is stored inside a data segment so we don't want to throw any access violations
 		DWORD oldProtect;
@@ -54,11 +55,11 @@ namespace MLAC::Components
 			// so we'll make sure to keep updating it as well.
 			// Each new motion also creates its own copy of these values but keeping track of the active motions is annoying
 			// and they usually change multiple times per PV anyway so this should suffice for now
-			float* pvStructPvFrameRate	= (float*)(0x0108D3D8 + 0x1D8A4);
-			float* pvStructPvFrameSpeed = (float*)(0x0108D3D8 + 0x1D8A8);
+			//float* pvStructPvFrameRate	= (float*)(0x0108D3D8 + 0x1D8A4);
+			//float* pvStructPvFrameSpeed = (float*)(0x0108D3D8 + 0x1D8A8);
 
-			*pvStructPvFrameRate  = *pvFrameRate;
-			*pvStructPvFrameSpeed = (defaultFrameRate / *pvFrameRate);
+			//pvStructPvFrameRate = *pvFrameRate;
+			//pvStructPvFrameSpeed = (defaultFrameRate / *pvFrameRate);
 
 			*frameSpeed = defaultFrameSpeed;
 		}
