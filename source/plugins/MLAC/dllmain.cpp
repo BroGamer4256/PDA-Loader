@@ -17,6 +17,7 @@
 #include "Components/CameraController.h"
 #include "Components/FastLoader.h"
 #include "Components/DebugComponent.h"
+#include "Components/ScaleComponent.h"
 #include "Utilities/Stopwatch.h"
 #include "FileSystem/ConfigFile.h"
 
@@ -101,6 +102,7 @@ namespace MLAC
 			new CameraController(),
 			new FastLoader(),
 			new DebugComponent(),
+			new ScaleComponent(),
 		};
 
 		ConfigFile componentsConfig(MainModule::GetModuleDirectory(), COMPONENTS_CONFIG_FILE_NAME);

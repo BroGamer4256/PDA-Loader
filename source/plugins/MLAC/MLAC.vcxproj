@@ -94,6 +94,7 @@
   <ItemGroup>
     <ClInclude Include="Components\FastLoader.h" />
     <ClInclude Include="Components\FrameRateManager.h" />
+    <ClInclude Include="Components\ScaleComponent.h" />
     <ClInclude Include="Components\SysTimer.h" />
     <ClInclude Include="Input\Bindings\Ds4Binding.h" />
     <ClInclude Include="Input\Bindings\XinputBinding.h" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Components\FastLoader.cpp" />
+    <ClCompile Include="Components\ScaleComponent.cpp" />
     <ClCompile Include="Components\SysTimer.cpp" />
     <ClCompile Include="Input\Bindings\Ds4Binding.cpp" />
     <ClCompile Include="Input\Bindings\XinputBinding.cpp" />

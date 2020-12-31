@@ -82,8 +82,6 @@ void ApplyPatches() {
 		{ (void*)0x00642800,{ 0xC3 }, "EarlyPlayerData" },
 		// Write ram files to the current directory instead of Y:/ram
 		{ (void*)0x006ff101,{ 0xEB }, "ram" },
-		// test menu
-		{ (void*)0x00e4b26f,{ 0x01 }, "test" }
 	};
 
 	// By Jay39w
@@ -137,7 +135,6 @@ void ApplyPatches() {
 		{ (void*)0x0074B818,{ 0xEB, 0x2D, 0x90, 0x90, 0x90 }, "FreePVWatch" },
 		// Write ram files to the current directory instead of Y:/ram //done
 		{ (void*)0x007B3E51,{ 0xEB }, "ram" },
-
 	};
 
 	const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } patches_600[] =
