@@ -1,5 +1,6 @@
 #pragma once
 #include "EmulatorComponent.h"
+#include <vector>
 
 namespace MLAC::Components
 {
@@ -13,13 +14,21 @@ namespace MLAC::Components
 
 		virtual void Initialize() override;
 		virtual void Update() override;
+		virtual void UpdateDraw2D() override;
+
+		static float fspeed_error; // compensation value for use in this frame
+		static float fspeed_error_next; // save a compensation value to be used in the next frame
+
+		static float fspeedhook_lastresult; // used by the ageage hair patch to be lazy and avoid setting up for a proper call
 
 	private:
-		float *pvFrameRate;
-		float *frameSpeed;
-		float *aetFrameDuration;
+		float* pvFrameRate;
+		float* frameSpeed;
+		float* aetFrameDuration;
 		float defaultAetFrameDuration;
-	
+		float motionSpeedMultiplier = 5.0;
+		float RoundFrameRate(float frameRate);
+		void InjectCode(void* address, const std::vector<uint8_t> data);
 		float commonRefreshRates[5]
 		{
 			60.0f,
@@ -28,7 +37,5 @@ namespace MLAC::Components
 			144.0f,
 			240.0f,
 		};
-
-		float RoundFrameRate(float frameRate);
 	};
 }

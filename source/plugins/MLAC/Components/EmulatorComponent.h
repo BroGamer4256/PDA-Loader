@@ -13,6 +13,7 @@ namespace MLAC::Components
 		virtual void Initialize() = 0;
 		virtual void Update() = 0;
 
+		virtual void UpdateDraw2D() {};
 		virtual void UpdateInput() {};
 		virtual void OnFocusGain() {};
 		virtual void OnFocusLost() {};
