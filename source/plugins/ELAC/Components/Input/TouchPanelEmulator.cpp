@@ -4,9 +4,9 @@
 
 #define TOUCH_PANEL_CONNECTED 1
 
-using namespace DivaHook::Input;
+using namespace ELAC::Input;
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	TouchPanelEmulator::TouchPanelEmulator()
 	{

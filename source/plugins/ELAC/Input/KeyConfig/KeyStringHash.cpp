@@ -1,7 +1,7 @@
 #include "KeyStringHash.h"
 #include <filesystem>
 
-namespace DivaHook::Input::KeyConfig
+namespace ELAC::Input::KeyConfig
 {
 	size_t KeyStringHash::operator()(const KeyString& key) const
 	{

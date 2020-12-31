@@ -3,7 +3,7 @@
 
 namespace fs = std::filesystem;
 
-namespace DivaHook::FileSystem
+namespace ELAC::FileSystem
 {
 	TextFile::TextFile(const std::wstring &path)
 	{

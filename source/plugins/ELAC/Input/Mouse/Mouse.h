@@ -3,7 +3,7 @@
 #include "../DirectInput/DirectInputMouse.h"
 #include "MouseState.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class Mouse : public IInputDevice
 	{

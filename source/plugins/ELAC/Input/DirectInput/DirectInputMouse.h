@@ -1,7 +1,7 @@
 #pragma once
 #include "DirectInputDevice.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class DirectInputMouse : public DirectInputDevice
 	{

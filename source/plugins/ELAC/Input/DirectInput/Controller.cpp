@@ -1,6 +1,6 @@
 #include "Controller.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	Controller::Controller()
 	{

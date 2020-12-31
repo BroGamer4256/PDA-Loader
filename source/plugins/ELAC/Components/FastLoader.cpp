@@ -2,7 +2,7 @@
 #include "../Constants.h"
 #include <stdio.h>
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	FastLoader::FastLoader()
 	{

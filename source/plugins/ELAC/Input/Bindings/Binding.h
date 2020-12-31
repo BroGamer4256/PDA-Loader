@@ -2,7 +2,7 @@
 #include <vector>
 #include "IInputBinding.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class Binding
 	{

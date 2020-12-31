@@ -3,7 +3,7 @@
 #include "../../../MainModule.h"
 #include <stdio.h>
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	DualShock4* DualShock4::instance;
 
@@ -125,16 +125,16 @@ namespace DivaHook::Input
 	{
 		switch (directionEnum)
 		{
-		case DivaHook::Input::DIR_UP:
+		case ELAC::Input::DIR_UP:
 			return joystick.YAxis <= -threshold;
 
-		case DivaHook::Input::DIR_RIGHT:
+		case ELAC::Input::DIR_RIGHT:
 			return joystick.XAxis >= +threshold;
 
-		case DivaHook::Input::DIR_DOWN:
+		case ELAC::Input::DIR_DOWN:
 			return joystick.YAxis >= +threshold;
 
-		case DivaHook::Input::DIR_LEFT:
+		case ELAC::Input::DIR_LEFT:
 			return joystick.XAxis <= -threshold;
 
 		default:

@@ -2,7 +2,7 @@
 #include "ConfigFile.h"
 #include "../Utilities/Operations.h"
 
-namespace DivaHook::FileSystem
+namespace ELAC::FileSystem
 {
 	ConfigFile::ConfigFile(const std::wstring &path) : TextFile(path)
 	{

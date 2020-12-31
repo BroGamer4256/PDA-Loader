@@ -2,7 +2,7 @@
 #include "JvsButtons.h"
 #include "InputBufferType.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	const int MAX_BUTTON_BIT = 0x6F;
 

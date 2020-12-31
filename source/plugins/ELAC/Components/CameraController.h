@@ -4,7 +4,7 @@
 #include "../Constants.h"
 #include "../Input/Bindings/Binding.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	class CameraController : public EmulatorComponent
 	{

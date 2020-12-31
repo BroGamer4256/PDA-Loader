@@ -1,7 +1,7 @@
 #include "EmulatorComponent.h"
 #include "../Constants.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	EmulatorComponent::EmulatorComponent()
 	{

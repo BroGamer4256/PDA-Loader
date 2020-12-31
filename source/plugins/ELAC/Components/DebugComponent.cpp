@@ -8,7 +8,7 @@
 #include "../Input/Mouse/Mouse.h"
 #include "../Constants.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	DebugComponent::DebugComponent()
 	{

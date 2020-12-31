@@ -6,7 +6,7 @@
 #include "../Bindings/Binding.h"
 #include "../DirectInput/Ds4/Ds4Button.h"
 
-namespace DivaHook::Input::KeyConfig
+namespace ELAC::Input::KeyConfig
 {
 	typedef std::unordered_map<KeyString, uint8_t, KeyStringHash> KeycodeMap;
 	typedef std::unordered_map<KeyString, Ds4Button, KeyStringHash> Ds4ButtonMap;

@@ -10,10 +10,10 @@
 #define  GLUT_CURSOR_RIGHT_ARROW	0x0000
 #define  GLUT_CURSOR_NONE			0x0065
 
-using namespace DivaHook::Input;
-using namespace DivaHook::Utilities;
+using namespace ELAC::Input;
+using namespace ELAC::Utilities;
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	CameraController::CameraController()
 	{

@@ -5,7 +5,7 @@
 #include <windows.h>
 #include <iostream>
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	FrameRateManager::FrameRateManager()
 	{

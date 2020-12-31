@@ -1,6 +1,6 @@
 #include "Ds4Binding.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	#define Ds4InstanceCheckDefault(checkFunc) (DualShock4::InstanceInitialized() ? DualShock4::GetInstance()->checkFunc : false)
 

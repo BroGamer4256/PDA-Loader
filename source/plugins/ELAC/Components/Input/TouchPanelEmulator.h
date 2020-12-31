@@ -3,7 +3,7 @@
 #include "TouchPanelState.h"
 #include "../../Input/Keyboard/Keyboard.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	class TouchPanelEmulator : public EmulatorComponent
 	{

@@ -3,7 +3,7 @@
 #include "../../IInputDevice.h"
 #include "Ds4State.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	// DualShock 4 Wireless Controller Product GUID: {09CC054C-0000-0000-0000-504944564944}
 	const GUID GUID_Ds4 = { 0x09CC054C, 0x0000, 0x0000, { 0x00, 0x00, 0x50, 0x49, 0x44, 0x56, 0x49, 0x44 } };

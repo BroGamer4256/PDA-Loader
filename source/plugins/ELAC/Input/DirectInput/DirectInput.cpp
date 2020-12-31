@@ -1,6 +1,6 @@
 #include "DirectInput.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	IDirectInput8 *IDirectInputInstance = nullptr;
 

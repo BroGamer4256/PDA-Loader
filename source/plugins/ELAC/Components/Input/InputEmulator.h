@@ -5,7 +5,7 @@
 #include "../EmulatorComponent.h"
 #include "../../Input/Bindings/Binding.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	struct KeyBit
 	{

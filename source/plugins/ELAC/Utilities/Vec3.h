@@ -1,7 +1,7 @@
 #pragma once
 #include "Vec2.h"
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	struct Vec3
 	{

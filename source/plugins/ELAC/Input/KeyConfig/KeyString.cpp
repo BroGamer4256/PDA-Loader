@@ -1,6 +1,6 @@
 #include "KeyString.h"
 
-namespace DivaHook::Input::KeyConfig
+namespace ELAC::Input::KeyConfig
 {
 	KeyString::KeyString(const char* str) : value(str)
 	{

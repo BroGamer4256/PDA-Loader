@@ -2,7 +2,7 @@
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	extern IDirectInput8 *IDirectInputInstance;
 

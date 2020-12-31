@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "101.h"
+#include "301.h"
+#include "600.h"
 
 std::string TrimString(const std::string& str, const std::string& whitespace)
 {

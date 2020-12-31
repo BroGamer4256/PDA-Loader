@@ -1,6 +1,6 @@
 #include "Ds4State.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	Joystick::Joystick() : XAxis(0.0f), YAxis(0.0f)
 	{

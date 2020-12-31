@@ -2,7 +2,7 @@
 #include "../DirectInput.h"
 #include "Ds4Button.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	struct Joystick
 	{

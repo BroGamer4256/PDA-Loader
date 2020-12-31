@@ -1,7 +1,7 @@
 #pragma once
 #include "KeyString.h"
 
-namespace DivaHook::Input::KeyConfig
+namespace ELAC::Input::KeyConfig
 {
 	struct KeyStringHash
 	{

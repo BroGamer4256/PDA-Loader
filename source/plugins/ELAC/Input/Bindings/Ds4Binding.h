@@ -2,7 +2,7 @@
 #include "IInputBinding.h"
 #include "../DirectInput/Ds4/DualShock4.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class Ds4Binding : public IInputBinding
 	{

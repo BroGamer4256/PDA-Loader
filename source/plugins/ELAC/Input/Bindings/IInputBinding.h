@@ -1,6 +1,6 @@
 #pragma once
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class IInputBinding
 	{

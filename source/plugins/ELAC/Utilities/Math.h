@@ -3,7 +3,7 @@
 #include "Vec2.h"
 #include "Vec3.h"
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	float ToDegrees(float radians);
 	float ToRadians(float degrees);

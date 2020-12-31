@@ -2,7 +2,7 @@
 #include "../../MainModule.h"
 #include "../../Constants.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	Mouse* Mouse::instance;
 
@@ -88,7 +88,7 @@ namespace DivaHook::Input
 			ScreenToClient(MainModule::DivaWindowHandle, &currentState.RelativePosition);
 
 		RECT hWindow;
-		GetClientRect(DivaHook::MainModule::DivaWindowHandle, &hWindow);
+		GetClientRect(ELAC::MainModule::DivaWindowHandle, &hWindow);
 
 		gameHeight = (int*)RESOLUTION_HEIGHT_ADDRESS;
 		gameWidth = (int*)RESOLUTION_WIDTH_ADDRESS;

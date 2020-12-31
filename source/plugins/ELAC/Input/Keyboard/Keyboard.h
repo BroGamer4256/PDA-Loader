@@ -3,9 +3,9 @@
 #include "KeyboardState.h"
 #include "../../Utilities/Stopwatch.h"
 
-using Stopwatch = DivaHook::Utilities::Stopwatch;
+using Stopwatch = ELAC::Utilities::Stopwatch;
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	constexpr float DOUBLE_TAP_THRESHOLD = 200.0f;
 	constexpr float INTERVAL_TAP_DELAY_THRESHOLD = 500.0f;

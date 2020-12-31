@@ -1,6 +1,6 @@
 #include "XinputState.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	bool XinputState::IsDown(BYTE keycode)
 	{

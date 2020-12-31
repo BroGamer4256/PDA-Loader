@@ -1,7 +1,7 @@
 #pragma once
 #include "DirectInput.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class DirectInputDevice
 	{

@@ -1,6 +1,6 @@
 #include "Binding.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	Binding::Binding()
 	{

@@ -4,7 +4,7 @@
 #include "../../Utilities/Stopwatch.h"
 #include "XinputState.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class Xinput : public IInputDevice
 	{

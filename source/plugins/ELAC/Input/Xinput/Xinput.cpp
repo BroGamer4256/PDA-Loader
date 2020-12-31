@@ -2,7 +2,7 @@
 #include "Xinput.h"
 #include "../../Constants.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	Xinput* Xinput::instance;
 

@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <vector>
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class XinputBinding : public IInputBinding
 	{

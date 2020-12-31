@@ -1,7 +1,7 @@
 #define _USE_MATH_DEFINES
 #include "Math.h"
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	float ToDegrees(float radians)
 	{

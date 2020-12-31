@@ -1,6 +1,6 @@
 #include "Stopwatch.h"
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	Stopwatch::Stopwatch()
 	{

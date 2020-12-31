@@ -1,6 +1,6 @@
 #include "KeyboardBinding.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	KeyboardBinding::KeyboardBinding(BYTE keycode) : Keycode(keycode)
 	{

@@ -1,6 +1,6 @@
 #include "Keyboard.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	Keyboard* Keyboard::instance;
 

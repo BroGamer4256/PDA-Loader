@@ -16,11 +16,11 @@
 
 const std::string KEY_CONFIG_FILE_NAME = "plugins\\keyconfig.ini";
 
-using namespace DivaHook::Input;
-using namespace DivaHook::Input::KeyConfig;
-using namespace DivaHook::Utilities;
+using namespace ELAC::Input;
+using namespace ELAC::Input::KeyConfig;
+using namespace ELAC::Utilities;
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	InputEmulator::InputEmulator()
 	{

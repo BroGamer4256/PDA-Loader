@@ -1,7 +1,7 @@
 #include "SysTimer.h"
 #include "../Constants.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	SysTimer::SysTimer()
 	{

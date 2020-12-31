@@ -2,7 +2,7 @@
 #include "EmulatorComponent.h"
 #include "GameState.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	class FastLoader : public EmulatorComponent
 	{

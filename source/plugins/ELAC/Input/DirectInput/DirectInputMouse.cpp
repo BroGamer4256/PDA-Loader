@@ -1,6 +1,6 @@
 #include "DirectInputMouse.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	DirectInputMouse::DirectInputMouse()
 	{

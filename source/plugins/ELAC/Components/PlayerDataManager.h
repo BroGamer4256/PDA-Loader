@@ -4,7 +4,7 @@
 #include "CustomPlayerData.h"
 #include <string>
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	class PlayerDataManager : public EmulatorComponent
 	{

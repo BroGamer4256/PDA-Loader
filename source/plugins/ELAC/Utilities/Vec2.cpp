@@ -1,6 +1,6 @@
 #include "Vec2.h"
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	Vec2::Vec2() 
 	{

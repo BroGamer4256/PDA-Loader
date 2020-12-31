@@ -1,7 +1,7 @@
 #include "XinputBinding.h"
 #include "..\Xinput\Xinput.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	XinputBinding::XinputBinding(BYTE keycode) : Keycode(keycode)
 	{

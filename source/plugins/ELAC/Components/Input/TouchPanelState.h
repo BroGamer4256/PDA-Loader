@@ -1,7 +1,7 @@
 #pragma once
 #include "ContactType.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	struct TouchPanelState
 	{

@@ -1,7 +1,7 @@
 #pragma once
 #include <windows.h>
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	struct XinputState
 	{

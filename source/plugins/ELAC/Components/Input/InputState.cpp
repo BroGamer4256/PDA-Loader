@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	void InputState::ClearState()
 	{

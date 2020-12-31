@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	enum JvsButtons : uint32_t
 	{

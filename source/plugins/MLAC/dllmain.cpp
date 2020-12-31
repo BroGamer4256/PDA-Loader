@@ -98,7 +98,7 @@ namespace MLAC
 			new TouchPanelEmulator(),
 			new SysTimer(),
 			new PlayerDataManager(),
-			//new FrameRateManager(),
+			new FrameRateManager(),
 			new CameraController(),
 			new FastLoader(),
 			new DebugComponent(),

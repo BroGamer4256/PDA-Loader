@@ -1,6 +1,6 @@
 #pragma once
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	struct Vec2
 	{

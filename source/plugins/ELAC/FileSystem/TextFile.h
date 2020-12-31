@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 
-namespace DivaHook::FileSystem
+namespace ELAC::FileSystem
 {
 	class TextFile
 	{

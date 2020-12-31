@@ -6,7 +6,7 @@ namespace chrono = std::chrono;
 typedef chrono::time_point<chrono::steady_clock> steady_clock;
 typedef chrono::high_resolution_clock high_resolution_clock;
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	class Stopwatch
 	{

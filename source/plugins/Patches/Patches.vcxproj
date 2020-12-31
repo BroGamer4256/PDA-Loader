@@ -103,6 +103,9 @@
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="101.h" />
+    <ClInclude Include="301.h" />
+    <ClInclude Include="600.h" />
     <ClInclude Include="framework.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

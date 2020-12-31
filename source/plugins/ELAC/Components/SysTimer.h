@@ -1,7 +1,7 @@
 #pragma once
 #include "EmulatorComponent.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	class SysTimer : public EmulatorComponent
 	{

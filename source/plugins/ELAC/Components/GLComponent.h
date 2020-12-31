@@ -2,7 +2,7 @@
 #include "EmulatorComponent.h"
 #include <string>
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	class GLComponent : public EmulatorComponent
 	{

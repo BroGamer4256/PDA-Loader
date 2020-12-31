@@ -7,7 +7,7 @@
 
 const std::string PLAYER_DATA_FILE_NAME = "plugins\\playerdata.ini";
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	PlayerDataManager::PlayerDataManager()
 	{

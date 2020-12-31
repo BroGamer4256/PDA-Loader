@@ -4,7 +4,7 @@
 #include <locale>
 #include <vector>
 
-namespace DivaHook::Utilities
+namespace ELAC::Utilities
 {
 	std::vector<std::string> Split(const std::string& str, const std::string& delim);
 

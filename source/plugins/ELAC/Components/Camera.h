@@ -1,7 +1,7 @@
 #pragma once
 #include "../Utilities/Math.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	struct Camera
 	{

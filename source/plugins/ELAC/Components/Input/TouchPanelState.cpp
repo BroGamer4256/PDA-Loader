@@ -1,6 +1,6 @@
 #include "TouchPanelState.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 
 }

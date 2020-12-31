@@ -1,6 +1,6 @@
 #pragma once
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	enum InputBufferType
 	{

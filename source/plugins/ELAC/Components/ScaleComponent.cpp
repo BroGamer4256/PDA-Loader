@@ -9,7 +9,7 @@
 #include "wtypes.h"
 #include "../MainModule.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	ScaleComponent::ScaleComponent()
 	{
@@ -40,7 +40,7 @@ namespace DivaHook::Components
 		fb2Width = (int*)FB2_WIDTH_ADDRESS;
 		fbAspectRatio = (double*)FB_ASPECT_RATIO_ADDRESS;
 		RECT hWindow;
-		GetClientRect(DivaHook::MainModule::DivaWindowHandle, &hWindow);
+		GetClientRect(ELAC::MainModule::DivaWindowHandle, &hWindow);
 		*uiAspectRatio = (float)(hWindow.right - hWindow.left) / (float)(hWindow.bottom - hWindow.top);
 		*fbAspectRatio = (double)(hWindow.right - hWindow.left) / (double)(hWindow.bottom - hWindow.top);
 		*uiWidth = hWindow.right - hWindow.left;

@@ -1,7 +1,7 @@
 #include "MainModule.h"
 #include <filesystem>
 
-namespace DivaHook
+namespace ELAC
 {
 	typedef std::filesystem::path fspath;
 

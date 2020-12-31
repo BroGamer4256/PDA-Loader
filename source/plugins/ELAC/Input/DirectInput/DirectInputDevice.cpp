@@ -1,6 +1,6 @@
 #include "DirectInputDevice.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	HRESULT DirectInputDevice::DI_CreateDevice(const GUID &guid)
 	{

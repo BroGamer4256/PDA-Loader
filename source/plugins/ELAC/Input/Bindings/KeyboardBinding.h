@@ -2,7 +2,7 @@
 #include "IInputBinding.h"
 #include "../Keyboard/Keyboard.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	class KeyboardBinding : public IInputBinding
 	{

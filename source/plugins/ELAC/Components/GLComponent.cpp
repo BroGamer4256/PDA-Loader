@@ -32,7 +32,7 @@
 
 #include "../base64/base64.h"
 
-namespace DivaHook::Components
+namespace ELAC::Components
 {
 	using namespace std::chrono;
 	using dsec = duration<double>;
@@ -109,8 +109,8 @@ namespace DivaHook::Components
 	void hwglSwapBuffers(_In_ HDC hDc)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		auto keyboard = DivaHook::Input::Keyboard::GetInstance();
-		auto xinput = DivaHook::Input::Xinput::GetInstance();
+		auto keyboard = ELAC::Input::Keyboard::GetInstance();
+		auto xinput = ELAC::Input::Xinput::GetInstance();
 		io.MouseDown[0] = keyboard->IsDown(VK_LBUTTON);
 		io.MouseDown[1] = keyboard->IsDown(VK_RBUTTON);
 		io.MouseDown[2] = keyboard->IsDown(VK_MBUTTON);
@@ -142,7 +142,7 @@ namespace DivaHook::Components
 
 		bool p_open = true;
 		RECT hWindow;
-		GetClientRect(DivaHook::MainModule::DivaWindowHandle, &hWindow);
+		GetClientRect(ELAC::MainModule::DivaWindowHandle, &hWindow);
 
 		ImGui::SetNextWindowBgAlpha(uiTransparency);
 
@@ -568,7 +568,7 @@ namespace DivaHook::Components
 				*((int*)0x00F06290) = *((int*)0x0102C21C);
 				*((int*)0x00F0628C) = *((int*)0x0102C218);
 
-				DivaHook::FileSystem::ConfigFile resolutionConfig(MainModule::GetModuleDirectory(), std::wstring(RESOLUTION_CONFIG_FILE_NAME.begin(), RESOLUTION_CONFIG_FILE_NAME.end()));
+				ELAC::FileSystem::ConfigFile resolutionConfig(MainModule::GetModuleDirectory(), std::wstring(RESOLUTION_CONFIG_FILE_NAME.begin(), RESOLUTION_CONFIG_FILE_NAME.end()));
 				bool success = resolutionConfig.OpenRead();
 				if (!success)
 				{

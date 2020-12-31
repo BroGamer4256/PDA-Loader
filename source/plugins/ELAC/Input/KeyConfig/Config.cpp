@@ -7,7 +7,7 @@
 #include "../../Constants.h"
 #include <XInput.h>
 
-namespace DivaHook::Input::KeyConfig
+namespace ELAC::Input::KeyConfig
 {
 	KeycodeMap Config::Keymap =
 	{

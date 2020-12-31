@@ -1,7 +1,7 @@
 #pragma once
 #include <windows.h>
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	const int KEYBOARD_KEYS = 0xFF;
 

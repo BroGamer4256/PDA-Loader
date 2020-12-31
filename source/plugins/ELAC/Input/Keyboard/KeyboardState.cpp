@@ -1,6 +1,6 @@
 #include "KeyboardState.h"
 
-namespace DivaHook::Input
+namespace ELAC::Input
 {
 	bool KeyboardState::IsDown(BYTE keycode)
 	{

@@ -3,7 +3,7 @@
 #include "TextFile.h"
 #include <unordered_map>
 
-namespace DivaHook::FileSystem
+namespace ELAC::FileSystem
 {
 	class ConfigFile : public TextFile
 	{
