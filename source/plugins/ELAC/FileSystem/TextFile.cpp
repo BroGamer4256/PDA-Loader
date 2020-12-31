@@ -5,14 +5,14 @@ namespace fs = std::filesystem;
 
 namespace DivaHook::FileSystem
 {
-	TextFile::TextFile(const std::string &path)
+	TextFile::TextFile(const std::wstring &path)
 	{
 		FileName = path;
 	}
 
-	TextFile::TextFile(const std::string &directory, const std::string &file)
+	TextFile::TextFile(const std::wstring &directory, const std::wstring &file)
 	{
-		auto fullPath = directory + "/" + file;
+		std::wstring fullPath = directory + L"/" + file;
 		FileName = fullPath;
 	}
 
@@ -27,7 +27,7 @@ namespace DivaHook::FileSystem
 		if (!fs::exists(configPath))
 			return false;
 
-		std::ifstream fileStream(configPath.string().c_str());
+		std::ifstream fileStream(FileName);
 		
 		if (!fileStream.is_open())
 			return false;

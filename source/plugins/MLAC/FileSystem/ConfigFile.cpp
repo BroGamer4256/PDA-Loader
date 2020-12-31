@@ -4,12 +4,12 @@
 
 namespace MLAC::FileSystem
 {
-	ConfigFile::ConfigFile(const std::string &path) : TextFile(path)
+	ConfigFile::ConfigFile(const std::wstring &path) : TextFile(path)
 	{
 		return;
 	}
 
-	ConfigFile::ConfigFile(const std::string &directory, const std::string &file) : TextFile(directory, file)
+	ConfigFile::ConfigFile(const std::wstring &directory, const std::wstring &file) : TextFile(directory, file)
 	{
 		return;
 	}

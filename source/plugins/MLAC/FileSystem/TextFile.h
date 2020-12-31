@@ -8,10 +8,10 @@ namespace MLAC::FileSystem
 	class TextFile
 	{
 	public:
-		std::string FileName;
+		std::wstring FileName;
 
-		TextFile(const std::string &path);
-		TextFile(const std::string &directory, const std::string &file);
+		TextFile(const std::wstring &path);
+		TextFile(const std::wstring &directory, const std::wstring &file);
 		~TextFile();
 	
 		bool OpenRead();

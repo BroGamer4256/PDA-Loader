@@ -5,7 +5,7 @@ namespace MLAC
 {
 	typedef std::filesystem::path fspath;
 
-	std::string *MainModule::moduleDirectory;
+	std::wstring *MainModule::moduleDirectory;
 
 	const wchar_t* MainModule::DivaWindowName = L"Project DIVA Arcade";
 	const wchar_t* MainModule::GlutDefaultName = L"GLUT";
@@ -13,15 +13,15 @@ namespace MLAC
 	HWND MainModule::DivaWindowHandle;
 	HMODULE MainModule::Module;
 
-	std::string MainModule::GetModuleDirectory()
+	std::wstring MainModule::GetModuleDirectory()
 	{
 		if (moduleDirectory == nullptr)
 		{
-			CHAR modulePathBuffer[MAX_PATH];
-			GetModuleFileNameA(MainModule::Module, modulePathBuffer, MAX_PATH);
+			WCHAR modulePathBuffer[MAX_PATH];
+			GetModuleFileNameW(MainModule::Module, modulePathBuffer, MAX_PATH);
 
 			fspath configPath = fspath(modulePathBuffer).parent_path();
-			moduleDirectory = new std::string(configPath.string());
+			moduleDirectory = new std::wstring(configPath.wstring());
 		}
 
 		return *moduleDirectory;

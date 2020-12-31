@@ -568,7 +568,7 @@ namespace DivaHook::Components
 				*((int*)0x00F06290) = *((int*)0x0102C21C);
 				*((int*)0x00F0628C) = *((int*)0x0102C218);
 
-				DivaHook::FileSystem::ConfigFile resolutionConfig(MainModule::GetModuleDirectory(), RESOLUTION_CONFIG_FILE_NAME.c_str());
+				DivaHook::FileSystem::ConfigFile resolutionConfig(MainModule::GetModuleDirectory(), std::wstring(RESOLUTION_CONFIG_FILE_NAME.begin(), RESOLUTION_CONFIG_FILE_NAME.end()));
 				bool success = resolutionConfig.OpenRead();
 				if (!success)
 				{

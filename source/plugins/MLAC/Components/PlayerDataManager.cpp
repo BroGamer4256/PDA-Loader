@@ -52,7 +52,7 @@ namespace MLAC::Components
 
 	void PlayerDataManager::LoadConfig()
 	{
-		FileSystem::ConfigFile config(MainModule::GetModuleDirectory(), PLAYER_DATA_FILE_NAME);
+		FileSystem::ConfigFile config(MainModule::GetModuleDirectory(), std::wstring(PLAYER_DATA_FILE_NAME.begin(), PLAYER_DATA_FILE_NAME.end()));
 
 		if (!config.OpenRead())
 			return;

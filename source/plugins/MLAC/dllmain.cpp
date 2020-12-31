@@ -40,7 +40,7 @@ const wchar_t *MessageWindowName = TEXT("MessageWindowTitle");
 
 namespace MLAC
 {
-	const std::string COMPONENTS_CONFIG_FILE_NAME = "components.ini";
+	const std::string COMPONENTS_CONFIG_FILE_NAME= "components.ini";
 
 	const DWORD JMP_HOOK_SIZE = 0x5;
 
@@ -105,7 +105,7 @@ namespace MLAC
 			new ScaleComponent(),
 		};
 
-		ConfigFile componentsConfig(MainModule::GetModuleDirectory(), COMPONENTS_CONFIG_FILE_NAME);
+		ConfigFile componentsConfig(MainModule::GetModuleDirectory(), std::wstring(COMPONENTS_CONFIG_FILE_NAME.begin(), COMPONENTS_CONFIG_FILE_NAME.end()));
 		bool success = componentsConfig.OpenRead();
 
 		if (!success)

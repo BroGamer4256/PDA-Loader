@@ -5,14 +5,14 @@ namespace fs = std::filesystem;
 
 namespace MLAC::FileSystem
 {
-	TextFile::TextFile(const std::string &path)
+	TextFile::TextFile(const std::wstring &path)
 	{
 		FileName = path;
 	}
 
-	TextFile::TextFile(const std::string &directory, const std::string &file)
+	TextFile::TextFile(const std::wstring &directory, const std::wstring &file)
 	{
-		auto fullPath = directory + "/" + file;
+		std::wstring fullPath = directory + L"/" + file;
 		FileName = fullPath;
 	}
 
