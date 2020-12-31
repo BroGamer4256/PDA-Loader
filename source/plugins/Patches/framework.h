@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-#include "101.h"
-#include "301.h"
-#include "600.h"
+
+typedef struct { void* Address; std::vector<uint8_t> Data; const char* Name; } Patch;
+#define PATCHES_END { (void*) 0x0, {0x0}, "\x00" }
 
 std::string TrimString(const std::string& str, const std::string& whitespace)
 {

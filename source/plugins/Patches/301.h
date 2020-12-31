@@ -1,8 +1,9 @@
 #pragma once
 #include <vector>
+#include "framework.h"
 
 // By Jay39w
-const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } patches_301[] =
+const Patch patches_301[] =
 {
 	// Debug
 	{ (void*)0x005643E0,{ 0xB0, 0x01 }, "dwgui" }, //done
@@ -52,4 +53,5 @@ const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } pat
 	{ (void*)0x0074B818,{ 0xEB, 0x2D, 0x90, 0x90, 0x90 }, "FreePVWatch" },
 	// Write ram files to the current directory instead of Y:/ram //done
 	{ (void*)0x007B3E51,{ 0xEB }, "ram" },
+	PATCHES_END
 };

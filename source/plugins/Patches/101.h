@@ -1,7 +1,8 @@
 #pragma once
+#include "framework.h"
 #include <vector>
 
-const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } patches_101[] =
+const Patch patches_101[] =
 {
 	// Enable dwgui
 	{ (void*)0x00535CC0,{ 0xB0, 0x01 }, "dwgui" },
@@ -42,4 +43,5 @@ const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } pat
 	{ (void*)0x00642800,{ 0xC3 }, "EarlyPlayerData" },
 	// Write ram files to the current directory instead of Y:/ram
 	{ (void*)0x006ff101,{ 0xEB }, "ram" },
+	PATCHES_END
 };

@@ -1,7 +1,8 @@
 #pragma once
 #include <vector>
+#include "framework.h"
 
-const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } patches_600[] =
+const Patch patches_600[] =
 {
 	// Debug tests
 	{ (void*)0x0059f150,{ 0xB0, 0x01 }, "Debug" },
@@ -52,5 +53,6 @@ const struct { void* Address; std::vector<uint8_t> Data; const char* Name; } pat
 	// Jump past the VP SelWatch button enabled checks
 	{ (void*)0x00798108,{ 0xEB, 0x2D, 0x90, 0x90, 0x90 }, "FreePVWatch" },
 	// Write ram files to the current directory instead of Y:/ram
-	{ (void*)0x00800D91,{ 0xEB }, "ram" }
+	{ (void*)0x00800D91,{ 0xEB }, "ram" },
+	PATCHES_END
 };

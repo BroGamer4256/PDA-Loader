@@ -14,6 +14,10 @@
 #include "framework.h"
 #pragma comment(lib, "detours.lib")
 
+#include "101.h"
+#include "301.h"
+#include "600.h"
+
 unsigned short game_version = 101;
 
 void InjectCode(void* address, const std::vector<uint8_t> data);
@@ -57,48 +61,29 @@ void ApplyPatches() {
 	CSimpleIniA ini;
 	ini.LoadFile(PATCHES_FILE);
 
-	if (create)
-	{
-		switch (game_version)
-		{
-		case 101:
-			for (size_t i = 0; i < _countof(patches_101); i++)
-				ini.SetBoolValue("patches", patches_101[i].Name, true);
-			break;
-		case 301:
-			for (size_t i = 0; i < _countof(patches_301); i++)
-				ini.SetBoolValue("patches", patches_301[i].Name, true);
-			break;
-		case 600:
-			for (size_t i = 0; i < _countof(patches_600); i++)
-				ini.SetBoolValue("patches", patches_600[i].Name, true);
-			break;
-		}
-	}
+	const Patch* patch_ptr = NULL;
 
 	switch (game_version)
 	{
 	case 101:
-		for (size_t i = 0; i < _countof(patches_101); i++)
-		{
-			if (!create && ini.GetValue("patches", patches_101[i].Name)[2] == "false"[2]) continue;
-			InjectCode(patches_101[i].Address, patches_101[i].Data);
-		}
+		patch_ptr = patches_101;
 		break;
 	case 301:
-		for (size_t i = 0; i < _countof(patches_301); i++)
-		{
-			if (!create && ini.GetValue("patches", patches_301[i].Name)[2] == "false"[2]) continue;
-			InjectCode(patches_301[i].Address, patches_301[i].Data);
-		}
+		patch_ptr = patches_301;
 		break;
 	case 600:
-		for (size_t i = 0; i < _countof(patches_600); i++)
-		{
-			if (!create && ini.GetValue("patches", patches_600[i].Name)[2] == "false"[2]) continue;
-			InjectCode(patches_600[i].Address, patches_600[i].Data);
-		}
+		patch_ptr = patches_600;
 		break;
+	}
+
+	if (patch_ptr == NULL) abort();
+
+	while (patch_ptr->Address != 0x0)
+	{
+		if (create) ini.SetBoolValue("patches", patch_ptr->Name, true);
+		else if (!create && !ini.GetBoolValue("patches", patch_ptr->Name)) continue;
+		InjectCode(patch_ptr->Address, patch_ptr->Data);
+		patch_ptr += 1;
 	}
 	if (ini.SaveFile(PATCHES_FILE)) MessageBoxA(NULL, "Saving Patches.ini failed", "Patches", NULL);
 
