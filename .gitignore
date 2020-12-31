@@ -346,3 +346,4 @@ healthchecksdb
 # Exclude builds
 data
 Release.7z
+*.7z

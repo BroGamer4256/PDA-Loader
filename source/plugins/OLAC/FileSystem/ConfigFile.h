@@ -8,8 +8,8 @@ namespace OLAC::FileSystem
 	class ConfigFile : public TextFile
 	{
 	public:
-		ConfigFile(const std::string &path);
-		ConfigFile(const std::string &directory, const std::string &file);
+		ConfigFile(const std::wstring &path);
+		ConfigFile(const std::wstring &directory, const std::wstring &file);
 
 		std::unordered_map<std::string, std::string> ConfigMap;
 

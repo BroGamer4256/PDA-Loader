@@ -7,7 +7,7 @@ namespace OLAC
 	class MainModule
 	{
 	private:
-		static std::string *moduleDirectory;
+		static std::wstring *moduleDirectory;
 
 	public:
 		static const wchar_t* DivaWindowName;
@@ -16,7 +16,7 @@ namespace OLAC
 		static HWND DivaWindowHandle;
 		static HMODULE Module;
 
-		static std::string GetModuleDirectory();
+		static std::wstring GetModuleDirectory();
 		static RECT GetWindowBounds();
 	};
 }

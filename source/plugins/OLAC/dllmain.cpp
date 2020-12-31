@@ -107,7 +107,7 @@ namespace OLAC
 			new DebugComponent(),
 		};
 
-		ConfigFile componentsConfig(MainModule::GetModuleDirectory(), COMPONENTS_CONFIG_FILE_NAME);
+		ConfigFile componentsConfig(MainModule::GetModuleDirectory(), std::wstring(COMPONENTS_CONFIG_FILE_NAME.begin(), COMPONENTS_CONFIG_FILE_NAME.end()));
 		bool success = componentsConfig.OpenRead();
 
 		if (!success)

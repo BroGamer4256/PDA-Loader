@@ -65,7 +65,7 @@ namespace OLAC::Components
 		LeftBinding = new Binding();
 		RightBinding = new Binding();
 
-		FileSystem::ConfigFile configFile(MainModule::GetModuleDirectory(), KEY_CONFIG_FILE_NAME);
+		FileSystem::ConfigFile configFile(MainModule::GetModuleDirectory(), std::wstring(KEY_CONFIG_FILE_NAME.begin(), KEY_CONFIG_FILE_NAME.end()));
 		configFile.OpenRead();
 
 		Config::BindConfigKeys(configFile.ConfigMap, "JVS_TEST", *TestBinding, { "F1" });
