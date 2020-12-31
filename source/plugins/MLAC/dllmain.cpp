@@ -13,13 +13,15 @@
 #include "Components/Input/TouchPanelEmulator.h"
 #include "Components/SysTimer.h"
 #include "Components/PlayerDataManager.h"
-#include "Components/FrameRateManager.h"
 #include "Components/CameraController.h"
 #include "Components/FastLoader.h"
 #include "Components/DebugComponent.h"
-#include "Components/ScaleComponent.h"
 #include "Utilities/Stopwatch.h"
 #include "FileSystem/ConfigFile.h"
+#ifdef _101
+#include "Components/FrameRateManager.h"
+#include "Components/ScaleComponent.h"
+#endif
 
 using namespace MLAC::Components;
 using namespace MLAC::Utilities;
@@ -98,11 +100,13 @@ namespace MLAC
 			new TouchPanelEmulator(),
 			new SysTimer(),
 			new PlayerDataManager(),
-			new FrameRateManager(),
 			new CameraController(),
 			new FastLoader(),
 			new DebugComponent(),
+#ifdef _101
+			new FrameRateManager(),
 			new ScaleComponent(),
+#endif
 		};
 
 		ConfigFile componentsConfig(MainModule::GetModuleDirectory(), std::wstring(COMPONENTS_CONFIG_FILE_NAME.begin(), COMPONENTS_CONFIG_FILE_NAME.end()));
@@ -311,12 +315,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 	switch (ul_reason_for_call)
 	{
 	case DLL_PROCESS_ATTACH:
-		if (*(char*)0x005DB6C4 == (char)0x65 || *(char*)0x005DB6C4 == (char)0x00)
+		if (*(char*)0x004592CC == (char)0x74 || *(char*)0x004592CC == (char)0x90)
 		{
-		}
-		else
-		{
-			printf("[MLAC] Certain bytes do not match PDA1.01 Exiting... \n");
+			printf("[MLAC] Certain bytes match PDA6.00 Exiting... \n");
 			break;
 		}
 		printf("[MLAC] Installing hooks...\n");

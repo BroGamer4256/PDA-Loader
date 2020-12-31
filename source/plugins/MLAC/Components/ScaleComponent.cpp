@@ -31,6 +31,7 @@ namespace MLAC::Components
 
 	void ScaleComponent::Update()
 	{
+#ifdef FB1_HEIGHT_ADDRESS
 		uiAspectRatio = (float*)UI_ASPECT_RATIO_ADDRESS;
 		uiWidth = (float*)UI_WIDTH_ADDRESS;
 		uiHeight = (float*)UI_HEIGHT_ADDRESS;
@@ -49,6 +50,7 @@ namespace MLAC::Components
 		*fb1Height = hWindow.bottom - hWindow.top;
 		*fb2Width = hWindow.right - hWindow.left;
 		*fb2Height = hWindow.bottom - hWindow.top;
+#endif
 		return;
 	}
 

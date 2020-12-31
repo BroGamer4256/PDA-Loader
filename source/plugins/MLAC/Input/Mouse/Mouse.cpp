@@ -90,16 +90,17 @@ namespace MLAC::Input
 		RECT hWindow;
 		GetClientRect(MLAC::MainModule::DivaWindowHandle, &hWindow);
 
-		gameHeight = (int*)RESOLUTION_HEIGHT_ADDRESS;
-		gameWidth = (int*)RESOLUTION_WIDTH_ADDRESS;
-		fbWidth = (int*)FB1_WIDTH_ADDRESS;
-		fbHeight = (int*)FB1_HEIGHT_ADDRESS;
-
 		if (directInputMouse != nullptr)
 		{
 			if (directInputMouse->Poll())
 				currentState.MouseWheel += directInputMouse->GetMouseWheel();
 		}
+
+#ifdef FB1_WIDTH_ADDRESS
+		gameHeight = (int*)RESOLUTION_HEIGHT_ADDRESS;
+		gameWidth = (int*)RESOLUTION_WIDTH_ADDRESS;
+		fbWidth = (int*)FB1_WIDTH_ADDRESS;
+		fbHeight = (int*)FB1_HEIGHT_ADDRESS;
 
 		if ((fbWidth != gameWidth) && (fbHeight != gameHeight)) {
 			xoffset = ((float)16 / (float)9) * (hWindow.bottom - hWindow.top);
@@ -115,6 +116,7 @@ namespace MLAC::Input
 			currentState.RelativePosition.x = ((currentState.RelativePosition.x - round(xoffset)) * *gameWidth / (hWindow.right - hWindow.left)) / scale;
 			currentState.RelativePosition.y = currentState.RelativePosition.y * *gameHeight / (hWindow.bottom - hWindow.top);
 		}
+#endif
 		return true;
 	}
 }

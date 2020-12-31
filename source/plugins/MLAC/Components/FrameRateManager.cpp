@@ -8,6 +8,7 @@
 #include <detours.h>
 #pragma comment(lib, "detours.lib")
 
+#ifdef CURRENT_GAME_SUB_STATE_ADDRESS
 namespace MLAC::Components
 {
 	FrameRateManager::FrameRateManager()
@@ -151,3 +152,4 @@ namespace MLAC::Components
 		VirtualProtect(address, byteCount, oldProtect, nullptr);
 	}
 }
+#endif

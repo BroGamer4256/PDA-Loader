@@ -11,9 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ELAC", "source\plugins\ELAC
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MLAC", "source\plugins\MLAC\MLAC.vcxproj", "{35AA62A4-13DC-403D-85F7-946F9BAE6B01}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Launcher", "source\plugins\Launcher\Launcher.vcxproj", "{75C71CBE-41BD-42F1-96A6-39C32A382542}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OLAC", "source\plugins\OLAC\OLAC.vcxproj", "{DD430298-54F2-4D2D-83D0-307B16FF650E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Launcher", "source\plugins\Launcher\Launcher.vcxproj", "{60D5E9F4-335F-402B-9A07-D78674DFFC9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,16 +33,12 @@ Global
 		{69BCF67B-34D9-4424-A2A8-3A056E9D38A6}.Release|x86.Build.0 = Release|Win32
 		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Debug|x86.ActiveCfg = Debug|Win32
 		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Debug|x86.Build.0 = Debug|Win32
-		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.ActiveCfg = Release|Win32
-		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.Build.0 = Release|Win32
-		{75C71CBE-41BD-42F1-96A6-39C32A382542}.Debug|x86.ActiveCfg = Debug|Win32
-		{75C71CBE-41BD-42F1-96A6-39C32A382542}.Debug|x86.Build.0 = Debug|Win32
-		{75C71CBE-41BD-42F1-96A6-39C32A382542}.Release|x86.ActiveCfg = Release|Win32
-		{75C71CBE-41BD-42F1-96A6-39C32A382542}.Release|x86.Build.0 = Release|Win32
-		{DD430298-54F2-4D2D-83D0-307B16FF650E}.Debug|x86.ActiveCfg = Debug|Win32
-		{DD430298-54F2-4D2D-83D0-307B16FF650E}.Debug|x86.Build.0 = Debug|Win32
-		{DD430298-54F2-4D2D-83D0-307B16FF650E}.Release|x86.ActiveCfg = Release|Win32
-		{DD430298-54F2-4D2D-83D0-307B16FF650E}.Release|x86.Build.0 = Release|Win32
+		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.ActiveCfg = 130|Win32
+		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.Build.0 = 130|Win32
+		{60D5E9F4-335F-402B-9A07-D78674DFFC9B}.Debug|x86.ActiveCfg = Debug|Win32
+		{60D5E9F4-335F-402B-9A07-D78674DFFC9B}.Debug|x86.Build.0 = Debug|Win32
+		{60D5E9F4-335F-402B-9A07-D78674DFFC9B}.Release|x86.ActiveCfg = Release|Win32
+		{60D5E9F4-335F-402B-9A07-D78674DFFC9B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -32,5 +32,8 @@
     <ClInclude Include="600.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="130.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
