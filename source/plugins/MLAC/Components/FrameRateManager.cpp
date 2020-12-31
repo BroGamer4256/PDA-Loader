@@ -93,7 +93,6 @@ namespace MLAC::Components
 
 	void FrameRateManager::Update()
 	{
-		/*
 		float frameRate = 60;
 		frameRate = RoundFrameRate(GetGameFrameRate());
 
@@ -125,7 +124,6 @@ namespace MLAC::Components
 		{
 			*frameSpeed = *aetFrameDuration / defaultAetFrameDuration;
 		}
-		*/
 	}
 
 	void FrameRateManager::UpdateDraw2D()
