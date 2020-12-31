@@ -2,8 +2,9 @@
 #include <windows.h>
 #include <string>
 
-int(__cdecl* divaMain101)(int argc, const char** argv, const char** envp) = (int(__cdecl*)(int argc, const char** argv, const char** envp))0x005dcc90; // This may work for 1.01??? HYPE????
-int(__cdecl* divaMain600)(int argc, const char** argv, const char** envp) = (int(__cdecl*)(int argc, const char** argv, const char** envp))0x0045c000; // This may work for 1.01??? HYPE????
+int(__cdecl* divaMain101)(int argc, const char** argv, const char** envp) = (int(__cdecl*)(int argc, const char** argv, const char** envp))0x005dcc90;
+int(__cdecl* divaMain301)(int argc, const char** argv, const char** envp) = (int(__cdecl*)(int argc, const char** argv, const char** envp))0x0060fc90;
+int(__cdecl* divaMain600)(int argc, const char** argv, const char** envp) = (int(__cdecl*)(int argc, const char** argv, const char** envp))0x0045c000;
 
 std::wstring ExePath() {
 	WCHAR buffer[MAX_PATH];
