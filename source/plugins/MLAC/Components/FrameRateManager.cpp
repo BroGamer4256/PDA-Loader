@@ -12,6 +12,8 @@ namespace MLAC::Components
 {
 	FrameRateManager::FrameRateManager()
 	{
+		float nMotionRate = 300;
+		motionSpeedMultiplier = nMotionRate / 60.0f;
 	}
 
 	FrameRateManager::~FrameRateManager()
@@ -89,40 +91,46 @@ namespace MLAC::Components
 		// is in one of the funcs that reads PV_FRAME_RATE_ADDRESS
 		// need to find a constant 60.0 single precision float for this (00 00 70 42) -- 009e74b4 looks good
 		InjectCode((void*)0x00702d50, { 0xd9, 0x05, 0xb4, 0x74, 0x9e, 0x00 }); // (change the address to read from)
+
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
+		DetourAttach(&(PVOID&)divaGetFrameSpeed, hookedGetFrameSpeed);
+		DetourTransactionCommit();
 	}
 
 	void FrameRateManager::Update()
 	{
-		float frameRate = 60;
-		frameRate = RoundFrameRate(GetGameFrameRate());
+		// *aetFrameDuration = 1.0f / GetGameFrameRate();
 
-		*aetFrameDuration = 1.0f / frameRate;
-		*pvFrameRate = frameRate;
-
-		bool inGame = *(GameState*)CURRENT_GAME_STATE_ADDRESS == GS_GAME;
-
-		if (inGame)
+		if (*(GameState*)CURRENT_GAME_STATE_ADDRESS == GS_GAME)
 		{
-			// During the GAME state the frame rate will be handled by the PvFrameRate instead
-			
-			constexpr float defaultFrameSpeed = 1.0f;
-			constexpr float defaultFrameRate = 60.0f;
-
-			// This PV struct creates a copy of the PvFrameRate & PvFrameSpeed during the loading screen
-			// so we'll make sure to keep updating it as well.
-			// Each new motion also creates its own copy of these values but keeping track of the active motions is annoying
-			// and they usually change multiple times per PV anyway so this should suffice for now
-			float* pvStructPvFrameRate	= (float*)(0x00E616A8);
-			float* pvStructPvFrameSpeed = (float*)(0x00E616AC);
-
-			*pvStructPvFrameRate  = *pvFrameRate;
-			*pvStructPvFrameSpeed = (defaultFrameRate / *pvFrameRate);
-
-			*frameSpeed = defaultFrameSpeed;
+			*pvFrameRate = 60.0f * motionSpeedMultiplier;
 		}
 		else
 		{
-			*frameSpeed = *aetFrameDuration / defaultAetFrameDuration;
+			*pvFrameRate = 60.0f;
+		}
+
+		if (*(SubGameState*)CURRENT_GAME_SUB_STATE_ADDRESS == SUB_GAME_MAIN || *(SubGameState*)CURRENT_GAME_SUB_STATE_ADDRESS == SUB_DEMO)
+		{
+			// enable dynamic framerate
+			*(bool*)USE_AUTO_FRAMESPEED_ADDRESS = true;
+
+			// target framerate
+			*(float*)AUTO_FRAMESPEED_TARGET_FRAMERATE_ADDRESS = *pvFrameRate;
+
+			// trying to fix meltdown's water
+			//if ((uint64_t*)0x1411943f8 != nullptr)
+				//*(float*)(*(uint64_t*)0x1411943f8 + 0x1c) = (60.0f / GetGameFrameRate()) / 15.0f;
+				//*(float*)(*(uint64_t*)0x1411943f8 + 0x10) = *(float*)(*(uint64_t*)0x1411943f8);
+		}
+		else
+		{
+			// enable dynamic framerate
+			*(bool*)USE_AUTO_FRAMESPEED_ADDRESS = true;
+
+			// target framerate
+			*(float*)AUTO_FRAMESPEED_TARGET_FRAMERATE_ADDRESS = 60.0f;
 		}
 	}
 
@@ -141,20 +149,5 @@ namespace MLAC::Components
 		VirtualProtect(address, byteCount, PAGE_EXECUTE_READWRITE, &oldProtect);
 		memcpy(address, data.data(), byteCount);
 		VirtualProtect(address, byteCount, oldProtect, nullptr);
-	}
-
-	float FrameRateManager::RoundFrameRate(float frameRate)
-	{
-		constexpr float roundingThreshold = 4.0f;
-
-		for (int i = 0; i < sizeof(commonRefreshRates) / sizeof(float); i++)
-		{
-			float refreshRate = commonRefreshRates[i];
-
-			if (frameRate > refreshRate - roundingThreshold && frameRate < refreshRate + roundingThreshold)
-				frameRate = refreshRate;
-		}
-
-		return frameRate;
 	}
 }

@@ -27,15 +27,6 @@ namespace MLAC::Components
 		float* aetFrameDuration;
 		float defaultAetFrameDuration;
 		float motionSpeedMultiplier = 5.0;
-		float RoundFrameRate(float frameRate);
 		void InjectCode(void* address, const std::vector<uint8_t> data);
-		float commonRefreshRates[5]
-		{
-			60.0f,
-			75.0f,
-			120.0f,
-			144.0f,
-			240.0f,
-		};
 	};
 }
