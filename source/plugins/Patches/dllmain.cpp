@@ -82,8 +82,6 @@ void ApplyPatches() {
 		{ (void*)0x00642800,{ 0xC3 }, "EarlyPlayerData" },
 		// Write ram files to the current directory instead of Y:/ram
 		{ (void*)0x006ff101,{ 0xEB }, "ram" },
-		// test menu
-		{ (void*)0x00e4b26f,{ 0x01 }, "test" }
 	};
 
 	// By Jay39w
