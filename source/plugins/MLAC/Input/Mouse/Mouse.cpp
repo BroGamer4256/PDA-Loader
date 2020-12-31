@@ -1,4 +1,5 @@
 #include "Mouse.h"
+#include "../../Constants.h"
 #include "../../MainModule.h"
 
 namespace MLAC::Input
@@ -86,12 +87,34 @@ namespace MLAC::Input
 		if (MainModule::DivaWindowHandle != NULL)
 			ScreenToClient(MainModule::DivaWindowHandle, &currentState.RelativePosition);
 
+		RECT hWindow;
+		GetClientRect(MLAC::MainModule::DivaWindowHandle, &hWindow);
+
+		gameHeight = (int*)RESOLUTION_HEIGHT_ADDRESS;
+		gameWidth = (int*)RESOLUTION_WIDTH_ADDRESS;
+		fbWidth = (int*)FB1_WIDTH_ADDRESS;
+		fbHeight = (int*)FB1_HEIGHT_ADDRESS;
+
 		if (directInputMouse != nullptr)
 		{
 			if (directInputMouse->Poll())
 				currentState.MouseWheel += directInputMouse->GetMouseWheel();
 		}
 
+		if ((fbWidth != gameWidth) && (fbHeight != gameHeight)) {
+			xoffset = ((float)16 / (float)9) * (hWindow.bottom - hWindow.top);
+			if (xoffset != (hWindow.right - hWindow.left))
+			{
+				scale = xoffset / (hWindow.right - hWindow.left);
+				xoffset = ((hWindow.right - hWindow.left) / 2) - (xoffset / 2);
+			}
+			else {
+				xoffset = 0;
+				scale = 1;
+			}
+			currentState.RelativePosition.x = ((currentState.RelativePosition.x - round(xoffset)) * *gameWidth / (hWindow.right - hWindow.left)) / scale;
+			currentState.RelativePosition.y = currentState.RelativePosition.y * *gameHeight / (hWindow.bottom - hWindow.top);
+		}
 		return true;
 	}
 }
