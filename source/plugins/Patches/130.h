@@ -15,8 +15,8 @@ const Patch patches_130[] =
 	//Enable debug cursor moving
 	//NG
 
-	//Show cursor in game window
-	//NG
+	//Show cursor in game window. Broken, as of now. Causes the game to crash on the first frame.
+	//{ (void*)0x005F8473,{ 0x00 }, "ShowCursor" },
 
 	//Skip amMaster checks
 	{ (void*)0x00731600,{ 0xB0, 0x01, 0xC3 }, "amMaster" },
@@ -24,7 +24,7 @@ const Patch patches_130[] =
 	//Skip pcpaOpenClient loop
 	{ (void*)0x008E1A80,{ 0xC2, 0x14, 0x00 }, "pcpaOpenClient" },
 
-	//Disable the keychip timebomb.Really it should be called "Close setting" but eh
+	//Disable the keychip timebomb. Really it should be called "Close setting" but meh.
 	{ (void*)0x004AAE40,{ 0xB8, 0x01, 0x00, 0x00, 0x00, 0xC3 }, "KeychipBomb" },
 
 	//* but of course we have a valid keychip * return true
@@ -34,25 +34,25 @@ const Patch patches_130[] =
 	{ (void*)0x005FF950,{ 0xC3 }, "SYSTEM_STARTUP_ERROR" },
 
 	//Skip parts of the network check state
-	//{ (void*),{ 0xE9, 0x13, 0x01, 0x00, 0x00 }, "NetworkCheck" },
+	{ (void*)0x0073C5A9,{ 0xE9, 0x13, 0x01, 0x00, 0x00 }, "NetworkCheck" },
 
 	//Ignore SYSTEM_STARTUP Location Server checks
-	//NG
+	{ (void*)0x0073BF39,{ 0x90, 0x90 }, "LocServer" },
 
 	//Set the initial wait timer value to 0
-	//NG
-	//NG
-	//NG
+   { (void*)0x0073DEBA,{ 0x00, 0x00 }, "NoWait" },
+   { (void*)0x0073DED2,{ 0x00, 0x00 }, "NoWait" },
+   { (void*)0x0073DEE9,{ 0x00, 0x00 }, "NoWait" },
 
 	//Always exit TASK_MODE_APP_ERROR on the first frame
-	//NG
-	//NG
+	{ (void*)0x0060096b,{ 0x90, 0x90 }, "TASK_MODE_APP_ERROR" },
+    { (void*)0x00600978,{ 0x90, 0x90 }, "TASK_MODE_APP_ERROR" },
 
 	//Jump past the PollInput function so we can write our own input
 	{ (void*)0x00731220,{ 0xC3 }, "PollInputSkip" },
 
 	//Always return true for the SelCredit enter SelPv check
-	{ (void*)0x005c0260,{ 0xB0, 0x01, 0xC3 }, "CreditSkip" },
+	{ (void*)0x005C0260,{ 0xB0, 0x01, 0xC3 }, "CreditSkip" },
 
 	//Write ram files to the current directory instead of Y : / ram
 	//NG, covered by twintail anyway
