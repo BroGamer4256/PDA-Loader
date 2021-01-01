@@ -18,6 +18,7 @@ namespace MLAC::Components
 
 	private:
 		const int updatesPerFrame = 39;
+		bool skipWarning = false;
 		
 		GameState currentGameState;
 		GameState previousGameState;

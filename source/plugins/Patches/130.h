@@ -16,7 +16,7 @@ const Patch patches_130[] =
 	//NG
 
 	//Show cursor in game window. Broken, as of now. Causes the game to crash on the first frame.
-	//{ (void*)0x005F8473,{ 0x00 }, "ShowCursor" },
+	{ (void*)0x005F8474,{ 0x00 }, "ShowCursor" },
 
 	//Skip amMaster checks
 	{ (void*)0x00731600,{ 0xB0, 0x01, 0xC3 }, "amMaster" },
@@ -55,7 +55,7 @@ const Patch patches_130[] =
 	{ (void*)0x005C0260,{ 0xB0, 0x01, 0xC3 }, "CreditSkip" },
 
 	//Write ram files to the current directory instead of Y : / ram
-	//NG, covered by twintail anyway
+	{ (void*)0x00735d91,{ 0xEB }, "ram" },
 
 	//Return early before resetting to the default PlayerData so we don't need to keep updating the PlayerData struct
 	{ (void*)0x00669E40,{ 0xC3 }, "EarlyPlayerData" },

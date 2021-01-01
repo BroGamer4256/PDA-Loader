@@ -21,6 +21,18 @@ int hookedMain101(int argc, const char** argv, const char** envp)
 	returnExe(argc, argv);
 }
 
+int hookedMain130(int argc, const char** argv, const char** envp)
+{
+	for (int i = 0; i < argc; ++i)
+	{
+		std::string arg = argv[i];
+		if (arg == "--launch")
+			return divaMain130(argc, argv, envp);
+	}
+
+	returnExe(argc, argv);
+}
+
 int hookedMain301(int argc, const char** argv, const char** envp)
 {
 	for (int i = 0; i < argc; ++i)
@@ -101,6 +113,14 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 		DetourTransactionBegin();
 		DetourUpdateThread(GetCurrentThread());
 		DetourAttach(&(PVOID&)divaMain101, hookedMain101);
+		DetourTransactionCommit();
+	}
+	else if (ul_reason_for_call == DLL_PROCESS_ATTACH && *(char*)0x004ed611 == (char)0x8b)
+	{
+		DisableThreadLibraryCalls(hModule);
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
+		DetourAttach(&(PVOID&)divaMain130, hookedMain130);
 		DetourTransactionCommit();
 	}
 	else if (ul_reason_for_call == DLL_PROCESS_ATTACH && (*(char*)0x004592CC == (char)0x74 || *(char*)0x004592CC == (char)0x90))

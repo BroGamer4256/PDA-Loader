@@ -20,6 +20,8 @@ after_build:
 artifacts:
     - path: 1.01.7z
       name: 1.01
+    - path: 1.30.7z
+      name: 1.30
     - path: 3.01.7z
       name: 3.01
     - path: 6.00.7z
