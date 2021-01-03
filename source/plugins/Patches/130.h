@@ -10,10 +10,10 @@ const Patch patches_130[] =
 	{ (void*)0x005A3D80,{ 0xB0, 0x01, 0xC3 }, "dwgui" },
 
 	//Enable debug cursor right click
-	//NG
+	{ (void*)0x005f82f2,{ 0x00 }, "DebugCursor" },
 
 	//Enable debug cursor moving
-	//NG
+	{ (void*)0x005f8a88,{ 0x64, 0x95 }, "DebugCursor" },
 
 	//Show cursor in game window. Broken, as of now. Causes the game to crash on the first frame.
 	{ (void*)0x005F8474,{ 0x00 }, "ShowCursor" },
