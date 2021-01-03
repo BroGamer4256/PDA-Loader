@@ -40,7 +40,7 @@ const Patch patches_600[] =
 	// Set the full screen glutGameModeString refresh rate to its default value
 	{ (void*)0x00459CAA,{ 0x00 }, "glutGameRefresh" },
 	// Use GLUT_CURSOR_RIGHT_ARROW instead of GLUT_CURSOR_NONE
-	{ (void*)0x00459CD4,{ 0x00 }, "GLUT_CURSOS" },
+	{ (void*)0x00459CD4,{ 0x00 }, "GLUT_CURSOR" },
 	// Ignore CLOSE SETTINGS check
 	{ (void*)0x004E4550,{ 0xB8, 0x01, 0x00, 0x00, 0x00, 0xC3 }, "CLOSE_SETTINGS" },
 	// Always return true for the SelCredit enter SelPv check
