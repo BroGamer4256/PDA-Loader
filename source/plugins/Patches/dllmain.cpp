@@ -87,7 +87,7 @@ void ApplyPatches() {
 	while (patch_ptr->Address != 0x0)
 	{
 		if (create) ini.SetBoolValue("patches", patch_ptr->Name, true);
-		else if (!create && !ini.GetBoolValue("patches", patch_ptr->Name)) continue;
+		else if (!create && !ini.GetBoolValue("patches", patch_ptr->Name)) { patch_ptr += 1; continue; }
 		InjectCode(patch_ptr->Address, patch_ptr->Data);
 		patch_ptr += 1;
 	}
