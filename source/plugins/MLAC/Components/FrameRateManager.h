@@ -14,7 +14,6 @@ namespace MLAC::Components
 
 		virtual void Initialize() override;
 		virtual void Update() override;
-		virtual void UpdateDraw2D() override;
 
 		static float fspeed_error; // compensation value for use in this frame
 		static float fspeed_error_next; // save a compensation value to be used in the next frame
