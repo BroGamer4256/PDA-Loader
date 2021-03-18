@@ -40,13 +40,13 @@ const Patch patches_130[] =
 	{ (void*)0x0073BF39,{ 0x90, 0x90 }, "LocServer" },
 
 	//Set the initial wait timer value to 0
-   { (void*)0x0073DEBA,{ 0x00, 0x00 }, "NoWait" },
-   { (void*)0x0073DED2,{ 0x00, 0x00 }, "NoWait" },
-   { (void*)0x0073DEE9,{ 0x00, 0x00 }, "NoWait" },
+	{ (void*)0x0073DEBA,{ 0x00, 0x00 }, "NoWait" },
+	{ (void*)0x0073DED2,{ 0x00, 0x00 }, "NoWait" },
+	{ (void*)0x0073DEE9,{ 0x00, 0x00 }, "NoWait" },
 
 	//Always exit TASK_MODE_APP_ERROR on the first frame
 	{ (void*)0x0060096b,{ 0x90, 0x90 }, "TASK_MODE_APP_ERROR" },
-    { (void*)0x00600978,{ 0x90, 0x90 }, "TASK_MODE_APP_ERROR" },
+	{ (void*)0x00600978,{ 0x90, 0x90 }, "TASK_MODE_APP_ERROR" },
 
 	//Jump past the PollInput function so we can write our own input
 	{ (void*)0x00731220,{ 0xC3 }, "PollInputSkip" },
