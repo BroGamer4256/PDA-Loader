@@ -4,10 +4,18 @@
 
 const Patch patches_600[] =
 {
-	// Debug tests
-	{ (void*)0x0059f150,{ 0xB0, 0x01 }, "Debug" },
-	{ (void*)0x0059f160,{ 0xB0, 0x01 }, "Debug" },
-	//{ (void*)0x,{ 0xB0, 0x01, 0xC3 } },
+	// Enable dwgui
+	{ (void*)0x0045AD12,{ 0x00 }, "dwgui" },
+	{ (void*)0x0059F150,{ 0xB0, 0x01 }, "dwgui" },
+	{ (void*)0x0059F160,{ 0xB0, 0x01}, "dwgui" },
+	// Enable Debug Cursor RightClick
+	{ (void*)0x0045ad12,{ 0x00 }, "DebugCursor" },
+	// Show Cursor in game window
+	{ (void*)0x00459cd4,{ 0x00 }, "ShowCursor" },
+	// Disable TAA
+	{ (void*)0x006E82D0,{ 0x29, 0xC0, 0x90, 0x90 }, "TAA" },
+	// Disable MLAA
+	// { (void*)0x006EE6F8,{ 0x83, 0xE0, 0x00 }, "MLAA" },
 	// NOP out JVS board error JMP
 	{ (void*)0x004592CC,{ 0x90, 0x90 }, "JVSBoard" },
 	// NOP out sys_am sram/eprom initialization call
@@ -39,8 +47,6 @@ const Patch patches_600[] =
 	{ (void*)0x00455438,{ 0xEB }, "PollInput" },
 	// Set the full screen glutGameModeString refresh rate to its default value
 	{ (void*)0x00459CAA,{ 0x00 }, "glutGameRefresh" },
-	// Use GLUT_CURSOR_RIGHT_ARROW instead of GLUT_CURSOR_NONE
-	{ (void*)0x00459CD4,{ 0x00 }, "GLUT_CURSOR" },
 	// Ignore CLOSE SETTINGS check
 	{ (void*)0x004E4550,{ 0xB8, 0x01, 0x00, 0x00, 0x00, 0xC3 }, "CLOSE_SETTINGS" },
 	// Always return true for the SelCredit enter SelPv check

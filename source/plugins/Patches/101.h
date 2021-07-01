@@ -14,6 +14,8 @@ const Patch patches_101[] =
 	{ (void*)0x005DBCC8,{ 0x64, 0xA3 }, "DebugCursor" },
 	// Show Cursor in game window
 	{ (void*)0x005DB6C4,{ 0x00 }, "ShowCursor" },
+	// Disable TAA
+	{ (void*)0x00646590,{ 0x29, 0xC0, 0x90, 0x90 }, "TAA" },
 	// Skip amMaster checks
 	{ (void*)0x006FAA10,{ 0xB0, 0x01, 0xC3 }, "amMaster" },
 	// Skip pcpaOpenClient loop

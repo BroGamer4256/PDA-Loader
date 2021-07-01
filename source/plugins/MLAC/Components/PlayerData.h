@@ -1,9 +1,6 @@
 #pragma once
 #include <stdint.h>
 
-// uint8_t 1 byte
-// int32_t 4 bytes
-
 #pragma pack(push, 1)
 struct PlayerData
 {
