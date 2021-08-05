@@ -1,10 +1,8 @@
-name: Build artifact
+name: Build and upload release
 
-on:
+on: 
   push:
-    branches: '*'
     tags-ignore: '*'
-  pull_request:
 
 jobs:
   build:
@@ -22,9 +20,15 @@ jobs:
           msbuild -p:Configuration=301
           cd ..\..\..
           cmd publish
+      - name: Add tag
+      uses: anothrNick/github-tag-action@1.26.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEFAULT_BUMP: none
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: $tag
           files: |
             1.01.7z
             1.30.7z
