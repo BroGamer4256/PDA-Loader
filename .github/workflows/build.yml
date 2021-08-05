@@ -10,6 +10,7 @@ jobs:
       - name: Setup MSVC
         uses: microsoft/setup-msbuild@v1.0.2
       - name: Build
+        shell: cmd
         run: |
           msbuild -p:Configuration=Release
           cd .\source\plugins\MLAC
@@ -17,7 +18,7 @@ jobs:
           msbuild -p:Configuration=130
           msbuild -p:Configuration=301
           cd ..\..\..
-          cmd publish
+          .\publish.bat
       - name: Bump tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.6
@@ -27,7 +28,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
-          release_name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
           files: |
             1.01.7z
