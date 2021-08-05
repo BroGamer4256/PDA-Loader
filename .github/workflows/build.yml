@@ -1,0 +1,33 @@
+name: Build artifact
+
+on:
+  push:
+    branches: '*'
+    tags-ignore: '*'
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup MSVC
+        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Build
+        run: |
+          msbuild -p:Configuration=Release;Platform=x86
+          cd source\plugins\MLAC
+          msbuild -p:Configuration=101
+          msbuild -p:Configuration=130
+          msbuild -p:Configuration=301
+          cd ..\..\..
+          cmd publish
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            1.01.7z
+            1.30.7z
+            3.01.7z
+            6.00.7z
