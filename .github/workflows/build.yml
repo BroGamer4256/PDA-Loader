@@ -21,10 +21,10 @@ jobs:
           cd ..\..\..
           cmd publish
       - name: Add tag
-      uses: anothrNick/github-tag-action@1.26.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DEFAULT_BUMP: none
+        uses: anothrNick/github-tag-action@1.26.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: none
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
