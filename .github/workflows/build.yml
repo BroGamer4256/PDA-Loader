@@ -1,0 +1,36 @@
+name: Build and upload release
+
+on: push
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup MSVC
+        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Build
+        shell: cmd
+        run: |
+          msbuild -p:Configuration=Release
+          cd .\source\plugins\MLAC
+          msbuild -p:Configuration=101
+          msbuild -p:Configuration=130
+          msbuild -p:Configuration=301
+          cd ..\..\..
+          .\publish.bat
+      - name: Bump tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ github.event.commits[0].message }}
+          files: |
+            1.01.7z
+            1.30.7z
+            3.01.7z
+            6.00.7z
