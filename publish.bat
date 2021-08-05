@@ -50,5 +50,3 @@ cd data
 7z a -t7z ..\3.01.7z 3.01
 7z a -t7z ..\6.00.7z 6.00
 cd ..
-
-echo Created build files

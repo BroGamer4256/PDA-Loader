@@ -19,7 +19,7 @@ Launch **"diva.exe"**.
 
 ## Download
 
-[Appveyor artifacts](https://ci.appveyor.com/project/BroGamer4256/pda-loader/build/artifacts)
+[Automatic github actions builds](https://github.com/BroGamer4256/PDA-Loader/releases/latest)
 
 ## Contributing
 
