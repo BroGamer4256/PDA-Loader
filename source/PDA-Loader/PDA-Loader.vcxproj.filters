@@ -31,7 +31,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="x64.def">
+    <None Include="Win32.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

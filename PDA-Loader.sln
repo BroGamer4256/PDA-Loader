@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28922.388
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PDA-Loader", "source\PDA-Loader\PDA-Loader.vcxproj", "{CA479467-D518-46A2-AC86-3098ADA99FE5}"
 EndProject
@@ -33,8 +33,8 @@ Global
 		{69BCF67B-34D9-4424-A2A8-3A056E9D38A6}.Release|x86.Build.0 = Release|Win32
 		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Debug|x86.ActiveCfg = Debug|Win32
 		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Debug|x86.Build.0 = Debug|Win32
-		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.ActiveCfg = Release|Win32
-		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.Build.0 = Release|Win32
+		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.ActiveCfg = 220|Win32
+		{35AA62A4-13DC-403D-85F7-946F9BAE6B01}.Release|x86.Build.0 = 220|Win32
 		{60D5E9F4-335F-402B-9A07-D78674DFFC9B}.Debug|x86.ActiveCfg = Debug|Win32
 		{60D5E9F4-335F-402B-9A07-D78674DFFC9B}.Debug|x86.Build.0 = Debug|Win32
 		{60D5E9F4-335F-402B-9A07-D78674DFFC9B}.Release|x86.ActiveCfg = Release|Win32

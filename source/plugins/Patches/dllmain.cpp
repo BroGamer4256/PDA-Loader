@@ -16,6 +16,7 @@
 
 #include "101.h"
 #include "130.h"
+#include "220.h"
 #include "301.h"
 #include "600.h"
 
@@ -38,7 +39,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	if (ul_reason_for_call == DLL_PROCESS_ATTACH)
 	{
 		hModulePtr = &hModule;
-	    if (*(char*)0x004ed611 == (char)0x8b) game_version = 130;
+		if (*(char*)0x00b05998 == (char)'2' && *(char*)0x00b0599a == (char)'2') game_version = 220;
+	    else if (*(char*)0x004ed611 == (char)0x8b) game_version = 130;
 		else if (*(char*)0x007B1210 == (char)0x83) game_version = 301;
 		else if (*(char*)0x004592CC == (char)0x74) game_version = 600;
 		ApplyPatches();
@@ -73,6 +75,9 @@ void ApplyPatches() {
 		break;
 	case 130:
 		patch_ptr = patches_130;
+		break;
+	case 220:
+		patch_ptr = patches_220;
 		break;
 	case 301:
 		patch_ptr = patches_301;
