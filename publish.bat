@@ -20,6 +20,16 @@ copy Config\1.30\keyconfig.ini data\1.30\plugins
 copy Config\1.30\playerdata.ini data\1.30\plugins
 copy Config\1.30\patches.ini data\1.30\plugins
 
+md data\2.20\plugins
+md data\2.20\patches
+copy Release\dinput8.dll data\2.20
+move Source\Plugins\MLAC\220\MLAC_220.dva data\2.20\plugins\MLAC.dva
+copy Release\Patches.dva data\2.20\plugins
+copy Config\2.20\components.ini data\2.20\plugins
+copy Config\2.20\keyconfig.ini data\2.20\plugins
+copy Config\2.20\playerdata.ini data\2.20\plugins
+copy Config\2.20\patches.ini data\2.20\plugins
+
 md data\3.01\plugins
 md data\3.01\patches
 copy Release\dinput8.dll data\3.01
@@ -47,6 +57,7 @@ copy Config\6.00\pv_modules.csv data\6.00\plugins
 cd data
 7z a -t7z ..\1.01.7z 1.01
 7z a -t7z ..\1.30.7z 1.30
+7z a -t7z ..\2.20.7z 2.20
 7z a -t7z ..\3.01.7z 3.01
 7z a -t7z ..\6.00.7z 6.00
 cd ..

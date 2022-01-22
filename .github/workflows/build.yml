@@ -4,11 +4,11 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - uses: actions/checkout@v2
       - name: Setup MSVC
-        uses: microsoft/setup-msbuild@v1.0.2
+        uses: microsoft/setup-msbuild@v1.1
       - name: Build
         shell: cmd
         run: |
@@ -16,6 +16,7 @@ jobs:
           cd .\source\plugins\MLAC
           msbuild -p:Configuration=101
           msbuild -p:Configuration=130
+          msbuild -p:Configuration=220
           msbuild -p:Configuration=301
           cd ..\..\..
           .\publish.bat
@@ -32,5 +33,6 @@ jobs:
           files: |
             1.01.7z
             1.30.7z
+            2.20.7z
             3.01.7z
             6.00.7z
