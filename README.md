@@ -35,7 +35,7 @@ MIT (see "LICENSE").
 
 Always use the original game executable.
 
-Special thanks to **nastys**, **Brolijah**, **Skyth**, **korenkonder**, **Samyuu**, **somewhatlurker**, **SwigS-27**, **crash5band**, **akasaka**, **lybxlpsv** and everyone else who helped at the [Project DIVA Modding 2nd Community Discord](https://discord.gg/cvBVGDZ), come join us if you want to help us to improve this project.
+Special thanks to **nastys**, **Brolijah**, **Skyth**, **korenkonder**, **Samyuu**, **somewhatlurker**, **SwigS-27**, **crash5band**, **lybxlpsv** and everyone else who helped at the [Project DIVA Modding 2nd Community Discord](https://discord.gg/cvBVGDZ), come join us if you want to help us to improve this project.
 
 ## Developer FAQ
 
